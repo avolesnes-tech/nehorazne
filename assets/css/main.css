@@ -643,118 +643,145 @@ body::before {
 .woman-card {
   position: relative; overflow: hidden;
   border-radius: 16px;
-  background: var(--earth);
+  background: #FAFAF8;
   aspect-ratio: 2/3;
   cursor: none;
   transition: transform 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-out);
-  border-top: 3px solid transparent;
+  border-top: 3px solid var(--accent, var(--violet-light));
+  box-shadow: 0 4px 20px rgba(30,12,4,0.09);
 }
 .woman-card:hover {
   transform: translateY(-20px) scale(1.025);
   box-shadow: 0 32px 64px var(--accent-glow, rgba(123,79,110,0.4)),
-              0 8px 24px rgba(10,4,0,0.4);
-  border-top-color: var(--accent, var(--violet-light));
+              0 8px 24px rgba(10,4,0,0.12);
   z-index: 2;
 }
 
-/* Full-bleed photo */
+/* Portrait: top 65% — the illustration area */
 .woman-card__portrait {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 65%;
   overflow: hidden;
+  background: #FAFAF8;
 }
+
+/* Watercolor wash blob behind the sketch */
+.woman-card__portrait::before {
+  content: '';
+  position: absolute;
+  inset: -20% -10%;
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 42%,
+    var(--accent-glow, rgba(123,79,110,0.38)),
+    transparent 75%
+  );
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-out);
+}
+.woman-card:hover .woman-card__portrait::before {
+  opacity: 1.4;
+}
+
+/* Flowers behind the sketch */
+.woman-card__flowers {
+  position: absolute;
+  bottom: -2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 68px; height: 92px;
+  z-index: 1;
+  color: var(--accent);
+  opacity: 0.52;
+  transition: opacity 0.5s var(--ease-out), transform 0.65s var(--ease-spring);
+  pointer-events: none;
+}
+.woman-card:hover .woman-card__flowers {
+  opacity: 0.78;
+  transform: translateX(-50%) translateY(-7px);
+}
+
+/* Pencil illustration effect — grayscale + high contrast + multiply */
 .woman-card__portrait img {
+  position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center top;
-  filter: sepia(45%) contrast(1.12) brightness(0.7);
+  object-position: center 12%;
+  filter: grayscale(1) contrast(1.78) brightness(1.28);
+  mix-blend-mode: multiply;
+  z-index: 2;
   transition: transform 0.8s var(--ease-out), filter 0.6s var(--ease-out);
 }
 .woman-card:hover .woman-card__portrait img {
-  transform: scale(1.1);
-  filter: sepia(20%) contrast(1.18) brightness(0.85);
+  transform: scale(1.07);
+  filter: grayscale(1) contrast(1.62) brightness(1.34);
 }
 
-/* Gradient overlay — bottom heavy */
-.woman-card__img-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(12, 4, 0, 0.97) 0%,
-    rgba(12, 4, 0, 0.78) 35%,
-    rgba(12, 4, 0, 0.3) 60%,
-    transparent 100%
-  );
-  transition: background 0.5s var(--ease-out);
-}
-.woman-card:hover .woman-card__img-overlay {
-  background: linear-gradient(
-    to top,
-    rgba(12, 4, 0, 0.95) 0%,
-    rgba(12, 4, 0, 0.65) 40%,
-    var(--accent-dark, rgba(80,40,80,0.15)) 70%,
-    transparent 100%
-  );
-}
+/* No dark overlay — the illustration speaks for itself */
+.woman-card__img-overlay { display: none; }
 
-/* Large decorative initial */
+/* Decorative initial — very subtle on white */
 .woman-card__bg {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 65%;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display);
-  font-size: clamp(6rem, 10vw, 9rem);
+  font-size: clamp(5rem, 8vw, 8rem);
   font-weight: 400;
   font-style: italic;
-  color: rgba(250,244,238,1);
+  color: var(--accent, var(--violet));
   opacity: 0.05;
-  transition: opacity 0.5s, transform 0.6s var(--ease-out);
+  z-index: 0;
   user-select: none;
   pointer-events: none;
+  transition: opacity 0.5s;
 }
-.woman-card:hover .woman-card__bg {
-  opacity: 0.09;
-  transform: scale(1.08) translateY(-5%);
-}
+.woman-card:hover .woman-card__bg { opacity: 0.08; }
 
-/* Content */
+/* Caption area — clean white with dark text */
 .woman-card__content {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 2rem 1.5rem 1.5rem;
-  transform: translateY(0);
-  transition: transform 0.4s var(--ease-out);
-}
-.woman-card:hover .woman-card__content {
-  transform: translateY(-6px);
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 35%;
+  padding: 0.9rem 1.25rem 1.25rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background: #FAFAF8;
+  border-top: 1px solid rgba(0,0,0,0.06);
 }
 .woman-card__name {
   font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  font-size: clamp(0.88rem, 1.1vw, 1rem);
   font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 0.35rem;
+  color: var(--ink);
+  margin-bottom: 0.22rem;
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
 .woman-card__years {
-  font-size: 0.67rem; font-weight: 300;
-  letter-spacing: 0.1em;
-  color: rgba(184,132,90,0.75);
-  margin-bottom: 0.875rem;
+  font-size: 0.6rem; font-weight: 300;
+  letter-spacing: 0.09em;
+  color: var(--warm-brown);
+  opacity: 0.6;
+  margin-bottom: 0.7rem;
   text-transform: uppercase;
 }
 .woman-card__vlastnost {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.6rem; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase;
+  font-size: 0.57rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--white);
   background: var(--accent, var(--violet));
   border-radius: 4px;
-  padding: 0.3rem 0.75rem;
+  padding: 0.26rem 0.7rem;
+  align-self: flex-start;
   transition: all 0.35s var(--ease-spring);
 }
 .woman-card:hover .woman-card__vlastnost {
-  letter-spacing: 0.28em;
-  padding-right: 0.9rem;
+  letter-spacing: 0.26em;
+  padding-right: 0.85rem;
 }
 
 /* ─── PULL QUOTE ──────────────────────────────────────────── */
