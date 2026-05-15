@@ -944,6 +944,149 @@ body::before {
   padding-right: 0.85rem;
 }
 
+/* ─── ICH PRÍBEHY ────────────────────────────────────────── */
+.section-stories {
+  background: var(--earth-deep);
+  padding: 7rem 2rem 6rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.section-stories .section-header { margin-bottom: 4rem; }
+.section-stories__sub {
+  font-size: 1rem; font-weight: 300;
+  color: rgba(250,244,238,0.55);
+  max-width: 520px; margin: 1.2rem auto 0;
+  line-height: 1.7;
+}
+.stories-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.story-card {
+  position: relative;
+  padding: 2.5rem 2rem 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  border-right: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+.story-card:nth-child(3n) { border-right: none; }
+.story-card:nth-last-child(-n+3) { border-bottom: none; }
+.story-card__initial {
+  position: absolute; top: 1rem; right: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 5rem; line-height: 1;
+  color: rgba(250,244,238,0.06);
+  pointer-events: none; user-select: none;
+}
+.story-card__vlastnost {
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--violet-light);
+  margin-bottom: 0.6rem;
+}
+.story-card__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 400;
+  color: var(--cream-warm);
+  margin-bottom: 1rem; line-height: 1.2;
+}
+.story-card__text {
+  font-size: 0.9rem; font-weight: 300;
+  color: rgba(250,244,238,0.7);
+  line-height: 1.8;
+}
+@media (max-width: 1024px) {
+  .stories-grid { grid-template-columns: repeat(2, 1fr); }
+  .story-card:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.07); }
+  .story-card:nth-child(2n) { border-right: none; }
+  .story-card:nth-last-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .story-card:nth-last-child(-n+2) { border-bottom: none; }
+}
+@media (max-width: 640px) {
+  .stories-grid { grid-template-columns: 1fr; }
+  .story-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .story-card:last-child { border-bottom: none; }
+}
+
+/* ─── ŽIVENA ─────────────────────────────────────────────── */
+.section-zivena {
+  background: var(--cream-warm);
+  padding: 7rem 2rem 6rem;
+  border-top: 1px solid rgba(184,132,90,0.15);
+}
+.section-zivena .section-title em { color: var(--violet); }
+.zivena-intro {
+  max-width: 680px; margin: 0 auto 4rem;
+  font-size: 1.05rem; font-weight: 300;
+  line-height: 1.85; color: var(--warm-brown);
+  text-align: center;
+}
+.zivena-intro strong { font-weight: 600; color: var(--earth); }
+.zivena-grid {
+  max-width: 1100px; margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: rgba(184,132,90,0.15);
+}
+.zivena-card {
+  background: var(--cream-warm);
+  padding: 2.5rem 2.5rem 2.5rem;
+}
+.zivena-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem; font-weight: 400;
+  color: var(--earth); margin-bottom: 0.9rem;
+  line-height: 1.2;
+}
+.zivena-card p {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--warm-brown); line-height: 1.85;
+}
+.zivena-footer {
+  text-align: center;
+  font-size: 0.92rem; color: var(--warm-brown);
+}
+.zivena-link {
+  color: var(--violet); font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(123,79,110,0.3);
+}
+.zivena-link:hover { text-decoration-color: var(--violet); }
+@media (max-width: 768px) {
+  .zivena-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── SHARE BUTTONS ──────────────────────────────────────── */
+.test-result__share {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(250,244,238,0.1);
+}
+.test-result__share-label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(250,244,238,0.4);
+  margin-bottom: 0.9rem;
+}
+.test-result__share-btns {
+  display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center;
+}
+.share-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: none; transition: opacity 0.2s;
+  border: 1px solid;
+}
+.share-btn:hover { opacity: 0.8; }
+.share-btn--fb  { background: #1877F2; color: #fff; border-color: #1877F2; }
+.share-btn--x   { background: #000; color: #fff; border-color: #333; }
+.share-btn--copy { background: transparent; color: var(--cream); border-color: rgba(250,244,238,0.3); }
+
 /* ─── PULL QUOTE ──────────────────────────────────────────── */
 .section-quote {
   background: var(--cream);
