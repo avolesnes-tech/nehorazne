@@ -1004,12 +1004,16 @@ body::before {
   pointer-events: none;
 }
 .section-test-teaser::before {
-  left: -310px;
+  left: -160px;
   transform: translateY(-50%);
 }
 .section-test-teaser::after {
-  right: -310px;
+  right: -160px;
   transform: translateY(-50%) scaleX(-1);
+}
+@media (max-width: 900px) {
+  .section-test-teaser::before { left: -290px; }
+  .section-test-teaser::after  { right: -290px; }
 }
 .test-teaser__inner {
   max-width: 680px; margin: 0 auto;
