@@ -997,26 +997,23 @@ body::before {
 .section-test-teaser::before,
 .section-test-teaser::after {
   content: '';
-  position: absolute; top: 0; bottom: 0;
-  width: 280px;
-  background: url('../images/botanical-tile.svg') repeat;
-  background-size: 220px 220px;
-  opacity: 0.18;
+  position: absolute; top: 50%;
+  width: 380px; height: 380px;
+  background: url('../images/Akvarel_transparent.png') center/contain no-repeat;
+  opacity: 0.2;
   pointer-events: none;
 }
 .section-test-teaser::before {
-  left: 0;
-  mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 100%);
+  left: -160px;
+  transform: translateY(-50%);
 }
 .section-test-teaser::after {
-  right: 0;
-  mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, transparent 100%);
+  right: -160px;
+  transform: translateY(-50%) scaleX(-1);
 }
 @media (max-width: 900px) {
-  .section-test-teaser::before,
-  .section-test-teaser::after { width: 120px; }
+  .section-test-teaser::before { left: -290px; }
+  .section-test-teaser::after  { right: -290px; }
 }
 .test-teaser__inner {
   max-width: 680px; margin: 0 auto;
