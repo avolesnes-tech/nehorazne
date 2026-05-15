@@ -1273,6 +1273,7 @@ body::before {
 .section-shop {
   background: var(--cream);
   padding: 6rem 2rem;
+  text-align: center;
 }
 .section-shop .section-title { color: var(--ink); }
 .section-shop .section-label { color: var(--violet); }
