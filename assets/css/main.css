@@ -2103,7 +2103,8 @@ html.is-transitioning {
   /* Panel labels — raise above the marquee strip */
   .hero__panel-label { bottom: 3.8rem; font-size: 0.52rem; }
 
-  /* Woman card — slightly larger name on narrow cards */
-  .woman-card__name { font-size: 0.82rem; }
-  .woman-card__content { padding: 0.65rem 0.9rem 0.75rem; }
+  /* Woman card — fixed px min-height so % resolution edge-case doesn't apply */
+  .woman-card__content { padding: 0.6rem 0.85rem 0.7rem; height: auto; min-height: 84px; }
+  .woman-card__name { font-size: 0.65rem; line-height: 1.18; }
+  .woman-card__years { font-size: 0.52rem; margin-bottom: 0.4rem; white-space: nowrap; }
 }
