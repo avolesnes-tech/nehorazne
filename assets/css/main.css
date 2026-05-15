@@ -1757,6 +1757,25 @@ body::before {
   background: var(--ink);
   padding: 4rem 2.5rem 2.5rem;
   border-top: 1px solid rgba(255,255,255,0.04);
+  position: relative; overflow: hidden;
+}
+.footer::before,
+.footer::after {
+  content: '';
+  position: absolute; top: 50%;
+  width: 420px; height: 420px;
+  background: url('../images/Akvarel_transparent.png') center/contain no-repeat;
+  opacity: 0.06;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.footer::before {
+  left: -280px;
+  transform: translateY(-50%);
+}
+.footer::after {
+  right: -280px;
+  transform: translateY(-50%) scaleX(-1);
 }
 .footer__grid {
   display: grid;
