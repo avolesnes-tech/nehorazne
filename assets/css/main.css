@@ -295,7 +295,7 @@ body::before {
 
 /* Compress siblings when any panel hovered */
 .hero__panels:has(.hero__panel:hover) .hero__panel { flex: 0.45; }
-.hero__panels:has(.hero__panel:hover) .hero__panel:hover { flex: 4.2; }
+.hero__panels:has(.hero__panel:hover) .hero__panel:hover { flex: 3.0; }
 
 /* Cream bg for multiply blend */
 .hero__panel-bg {
@@ -308,17 +308,21 @@ body::before {
 .hero__panel-img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center 20%;
+  object-fit: cover; object-position: center 15%;
   filter: grayscale(1) contrast(1.7) brightness(1.28);
   mix-blend-mode: multiply;
   z-index: 1;
-  transition: filter 0.55s var(--ease-out);
+  transition: filter 0.55s var(--ease-out), object-position 0.75s var(--ease-out);
 }
 .hero__panels:has(.hero__panel:hover) .hero__panel:hover .hero__panel-img {
   filter: grayscale(0.45) contrast(1.3) brightness(1.12);
+  object-position: center 18%;
 }
 .hero__panel--soltesova .hero__panel-img {
-  object-position: 38% 25%;
+  object-position: 38% 15%;
+}
+.hero__panels:has(.hero__panel:hover) .hero__panel--soltesova:hover .hero__panel-img {
+  object-position: 38% 18%;
 }
 
 /* ─── WOMAN CARD HOVER: dark overlay + attribute text ──── */
