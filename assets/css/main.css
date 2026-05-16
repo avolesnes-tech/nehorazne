@@ -267,6 +267,11 @@ body::before {
   text-align: center;
   padding: 0 2rem;
   pointer-events: none;
+  transition: opacity 0.45s var(--ease-out);
+}
+/* Keď sa niektorý panel rozširuje — header sa vytratí */
+.hero:has(.hero__panel:hover) .hero__header {
+  opacity: 0;
 }
 .hero > .hero__header .btn,
 .hero > .hero__header .hero__cta-group { pointer-events: auto; }
@@ -540,11 +545,17 @@ body::before {
 }
 
 .hero__subtitle {
-  font-family: var(--font-body);
-  font-size: 0.65rem; font-weight: 500;
-  letter-spacing: 0.3em; text-transform: uppercase;
-  color: var(--violet-muted);
-  margin-bottom: 0.9rem;
+  font-family: var(--font-lit);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--cream-warm);
+  margin-bottom: 0.6rem;
+  text-shadow:
+    0 1px 12px rgba(0,0,0,0.95),
+    0 0 40px rgba(0,0,0,0.8),
+    0 4px 32px rgba(0,0,0,0.7);
   opacity: 0;
   animation: fadeUp 0.8s var(--ease-out) 0.15s forwards;
 }
