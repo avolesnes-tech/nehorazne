@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hana Gregorová — Odvaha · Slovenky pred nami</title>
+  <meta name="description" content="Prvá slovenská feministka. Keď napísala, že žena má právo na vlastný intelektuálny život, malo Slovensko ešte čo povedať. Hana Gregorová to povedala napriek tomu.">
+  <meta name="author" content="Anna Lockwoodová">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Slovenky pred nami">
+  <meta property="og:title" content="Hana Gregorová — Odvaha">
+  <meta property="og:description" content="Prvá slovenská feministka. Pisateľka, redaktorka, organizátorka. Bojovala za právo žien na vzdelanie a vlastný hlas celý život.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&family=Raleway:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js"></script>
+</head>
+
+<body>
+
+<div id="pageCurtain" aria-hidden="true">
+  <svg class="curtain-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#5A3520" stroke-width="0.8" fill="none">
+      <path d="M80 120 Q100 90 130 80"/><ellipse cx="96" cy="68" rx="7" ry="4" transform="rotate(-30 96 68)"/>
+      <path d="M1340 100 Q1360 80 1380 90"/><ellipse cx="1371" cy="53" rx="7" ry="4" transform="rotate(40 1371 53)"/>
+      <path d="M60 750 Q80 720 110 710"/><ellipse cx="75" cy="698" rx="7" ry="4" transform="rotate(-25 75 698)"/>
+      <path d="M680 30 Q700 10 720 20"/><ellipse cx="702" cy="-2" rx="6" ry="3" transform="rotate(-40 702 -2)"/>
+      <circle cx="400" cy="150" r="2" fill="#5A3520"/>
+      <circle cx="1050" cy="170" r="2" fill="#5A3520"/>
+    </g>
+  </svg>
+</div>
+
+<div class="cursor" id="cursor"><div class="cursor__dot"></div></div>
+<div class="cursor__ring" id="cursorRing"></div>
+
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav__logo">Slovenky <span>pred nami</span></a>
+  <ul class="nav__links">
+    <li class="nav__dropdown">
+      <button class="nav__dropdown-toggle" aria-expanded="false">
+        Ženy rebelky
+        <svg width="10" height="6" fill="none" viewBox="0 0 10 6">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="nav__dropdown-menu">
+        <li><a href="/zeny-rebelky/soltesova/">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
+        <li><a href="/zeny-rebelky/timrava/">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
+        <li><a href="/zeny-rebelky/vansova/">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
+        <li><a href="/zeny-rebelky/gregorova/" class="active-page">Hana Gregorová <span class="vlastnost-tag">Odvaha</span></a></li>
+      </ul>
+    </li>
+    <li><a href="/eshop/">E-shop</a></li>
+    <li><a href="/o-nas/">O nás</a></li>
+    <li><a href="/kontakt/">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div data-barba="wrapper">
+  <main data-barba="container" data-barba-namespace="gregorova">
+
+<section class="hero hero--subpage">
+
+  <div class="botanical-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#5A3520" stroke-width="0.6" fill="none" opacity="0.14">
+        <path d="M80 120 Q100 90 130 80"/><ellipse cx="96" cy="68" rx="7" ry="4" transform="rotate(-30 96 68)"/>
+        <path d="M108 95 Q104 75 115 62"/><ellipse cx="115" cy="60" rx="7" ry="4" transform="rotate(-50 115 60)"/>
+        <path d="M1360 100 Q1380 80 1400 90"/><ellipse cx="1391" cy="53" rx="7" ry="4" transform="rotate(40 1391 53)"/>
+        <path d="M60 750 Q80 720 110 710"/><ellipse cx="75" cy="698" rx="7" ry="4" transform="rotate(-25 75 698)"/>
+        <path d="M40 300 Q50 285 65 288"/><ellipse cx="62" cy="287" rx="7" ry="3.5" transform="rotate(-20 62 287)"/>
+        <path d="M1395 280 Q1410 265 1425 268"/><ellipse cx="1422" cy="267" rx="7" ry="3.5" transform="rotate(20 1422 267)"/>
+        <circle cx="400" cy="150" r="1.5" fill="#5A3520" opacity="0.4"/>
+        <circle cx="1050" cy="170" r="1.5" fill="#5A3520" opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero__left">
+    <nav class="breadcrumb" aria-label="Navigácia">
+      <a href="/">Domov</a>
+      <span class="breadcrumb__sep">›</span>
+      <a href="/zeny-rebelky/">Ženy rebelky</a>
+      <span class="breadcrumb__sep">›</span>
+      <span class="breadcrumb__current">Hana Gregorová</span>
+    </nav>
+
+    <div class="hero__badge">ODVAHA</div>
+
+    <h1 class="hero__name">Hana Gregorová</h1>
+
+    <p class="hero__meta">
+      1885 – 1958
+      <span class="hero__meta-sep">·</span>
+      Martin / Bratislava / Praha
+    </p>
+
+    <svg class="hero__ornament--subpage" width="260" height="20" viewBox="0 0 260 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="0" y1="10" x2="100" y2="10" stroke="#C49A6C" stroke-width="0.5"/>
+      <path d="M108 10 L115 3 L122 10 L115 17 Z" stroke="#C49A6C" stroke-width="0.8" fill="none"/>
+      <circle cx="130" cy="10" r="2.5" fill="#C49A6C" opacity="0.6"/>
+      <path d="M138 10 L145 3 L152 10 L145 17 Z" stroke="#C49A6C" stroke-width="0.8" fill="none"/>
+      <line x1="160" y1="10" x2="260" y2="10" stroke="#C49A6C" stroke-width="0.5"/>
+    </svg>
+
+    <p class="hero__perex">
+      Narodila sa v Martine v roku 1885 ako Anna Božena Lilgová a celý život žila tak, ako verejne hlásala: s knihou v ruke a so slovom pripravným na obranu. Vydala sa za spisovateľa Jozefa Gregora Tajovského nie z romantického záujmu, ale preto, lebo vedela, čo chce od života. Keď slovenské ženy ešte len tápali v súkromí, Gregorová stála pred publikom a hovorila o ženskom práve na vzdelanie, slobodu myslenia a vlastné ambície. Prvá slovenská feministka nie je prívlastok, ktorý si udelila sama. Je to popis toho, čo skutočne robila.
+    </p>
+
+    <div class="hero__cta">
+      <a href="#pribeh" class="btn btn--primary">
+        Jej príbeh <span class="btn__arrow">↓</span>
+      </a>
+      <a href="/eshop/?zena=gregorova" class="btn btn--ghost">
+        Nos jej odkaz <span class="btn__arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__illustration" aria-label="Ilustrácia Hany Gregorovej">
+    <img
+      src="/Hana_Gregorova.jpg"
+      alt="Hana Gregorová"
+      class="hero__illustration-img"
+      onerror="this.style.display='none'"
+    >
+    <span class="hero__illustration-letter" aria-hidden="true">G</span>
+    <div class="hero__illustration-overlay" aria-hidden="true"></div>
+  </div>
+
+</section>
+
+<section class="section-quote">
+  <div class="botanical-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#8B5A3A" stroke-width="0.5" fill="none" opacity="0.12">
+        <path d="M50 200 Q70 170 100 160"/><ellipse cx="97" cy="159" rx="7" ry="4" transform="rotate(-30 97 159)"/>
+        <path d="M1380 180 Q1400 155 1420 165"/><ellipse cx="1418" cy="163" rx="7" ry="4" transform="rotate(30 1418 163)"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-quote__inner reveal">
+    <blockquote class="section-quote__text">
+      „Vydám sa za Vás, aby som mohla žiť duševnejšie a že ste spisovateľ."
+    </blockquote>
+    <p class="section-quote__attribution">Hana Gregorová v liste Jozefovi Gregorovi Tajovskému</p>
+  </div>
+</section>
+
+<section class="section-rebelka">
+  <div class="botanical-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#8B6543" stroke-width="0.5" fill="none" opacity="0.07">
+        <path d="M100 80 Q130 50 170 60"/><ellipse cx="167" cy="59" rx="8" ry="4" transform="rotate(-40 167 59)"/>
+        <path d="M1320 520 Q1350 490 1390 500"/><ellipse cx="1387" cy="499" rx="8" ry="4" transform="rotate(40 1387 499)"/>
+        <circle cx="300" cy="100" r="2" fill="#8B6543" opacity="0.5"/>
+        <circle cx="1150" cy="500" r="2" fill="#8B6543" opacity="0.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-header reveal">
+    <p class="section-label">Prečo bola rebelka</p>
+    <h2 class="section-title section-title--dark">
+      Pomenovala to, čo ostatní len šepkali.
+    </h2>
+  </div>
+
+  <div class="rebelka-grid">
+    <div class="rebelka-col reveal reveal-delay-1">
+      <p class="rebelka-col__eyebrow">Čo robila</p>
+      <h3 class="rebelka-col__title">Písala a organizovala</h3>
+      <ul>
+        <li>Prvá zbierka próz Ženy vyšla v roku 1912</li>
+        <li>Prednášala vo Živene o ženskom vzdelaní a právach</li>
+        <li>Po roku 1945 predsedala Zväzu slovenských žien</li>
+        <li>Redaktorka, publicistka a organizátorka kultúrneho života v Bratislave</li>
+        <li>Roku 2023 jej bol udelený Rád Ľudovíta Štúra in memoriam</li>
+      </ul>
+    </div>
+
+    <div class="rebelka-col reveal reveal-delay-2">
+      <p class="rebelka-col__eyebrow">Prečo to vtedy šokovalo</p>
+      <h3 class="rebelka-col__title">Feminizmus bol cudzie slovo</h3>
+      <ul>
+        <li>Žena, ktorá verejne hovorí o ženských právach, budila podozrenie</li>
+        <li>Manžel bol pre väčšinu žien osudom, nie voľbou</li>
+        <li>Salón vedený ženou bol rarita, nie samozrejmosť</li>
+        <li>Slovensko nemalo žiadnu tradíciu organizovaného ženského hnutia</li>
+      </ul>
+    </div>
+
+    <div class="rebelka-col rebelka-col--today reveal reveal-delay-3">
+      <p class="rebelka-col__eyebrow">Dnes</p>
+      <h3 class="rebelka-col__title">Jej odpoveď na naše strachy</h3>
+      <ul>
+        <li>Tlak na ticho a konformitu v práci i doma</li>
+        <li>Pocit, že ambícia u ženy je niečo, za čo sa treba ospravedlňovať</li>
+        <li>Strach verejne pomenovať nespravodlivosť</li>
+        <li>Vyber si hlas. Potom ho použi.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section-timeline" id="pribeh">
+  <div class="botanical-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#8B5A3A" stroke-width="0.5" fill="none" opacity="0.11">
+        <path d="M60 100 Q85 70 115 80"/><ellipse cx="112" cy="79" rx="8" ry="4" transform="rotate(-35 112 79)"/>
+        <path d="M1360 620 Q1385 590 1415 600"/><ellipse cx="1412" cy="599" rx="8" ry="4" transform="rotate(35 1412 599)"/>
+        <circle cx="200" cy="550" r="1.5" fill="#8B5A3A" opacity="0.45"/>
+        <circle cx="1250" cy="180" r="1.5" fill="#8B5A3A" opacity="0.45"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-header reveal">
+    <p class="section-label section-label--light">Jej príbeh</p>
+    <h2 class="section-title section-title--cream">Osem míľnikov</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline__item reveal">
+      <span class="timeline__year">1885</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Narodila sa 30. januára v Martine ako <strong>Anna Božena Lilgová</strong>. Martin bol vtedy centrom slovenského národného života a práve toto prostredie formovalo jej neskorší záujem o kultúru, literatúru a ženské otázky.</p>
+    </div>
+
+    <div class="timeline__item reveal reveal-delay-1">
+      <span class="timeline__year">1900</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Po otcovej smrti zostala odkázaná na vlastné schopnosti a rozhodnosť. Toto obdobie poznačilo jej pochopenie pre ženy, ktoré museli čeliť životu bez mužskej opory, a neskôr sa premietlo priamo do jej literárnych postáv.</p>
+    </div>
+
+    <div class="timeline__item reveal reveal-delay-2">
+      <span class="timeline__year">1907</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Vydala sa za spisovateľa <strong>Jozefa Gregora Tajovského</strong>. Sobáš sa konal v Nadlaku, kde Tajovský pôsobil ako učiteľ. V liste mu predtým otvorene napísala, prečo si ho volí: chcela žiť duševnejšie, a on bol spisovateľ. Vzali sa s jasným porozumením toho, čo od seba navzájom očakávajú.</p>
+    </div>
+
+    <div class="timeline__item reveal reveal-delay-3">
+      <span class="timeline__year">1912</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Vyšla jej prvá zbierka próz <strong>Ženy</strong>, v ktorej zobrazila životy žien bez sentimentality a bez moralizovania. V tom istom roku prednášala vo <strong>Živene</strong> o práve žien na vzdelanie a kultúrny život, čím sa otvorene prihlásila k feministickým myšlienkam.</p>
+    </div>
+
+    <div class="timeline__item reveal">
+      <span class="timeline__year">1916</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">V Budapešti sa im narodila dcéra <strong>Dagmar</strong>. Manželia trávili vojnové roky v rôznych mestách podľa toho, kde Tajovský pôsobil. Gregorová celý čas písala, korešpondovala a udržiavala kontakt so slovenskou kultúrnou sférou napriek vzdialenosti.</p>
+    </div>
+
+    <div class="timeline__item reveal reveal-delay-1">
+      <span class="timeline__year">1919</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Po vzniku Československa sa presťahovali do <strong>Košíc</strong>, kde Gregorová spolupracovala s časopisom <strong>Slovenský východ</strong>. Publicistická práca jej dávala priestor vyjadrovať sa k spoločenským otázkam, na ktoré próza nestačila.</p>
+    </div>
+
+    <div class="timeline__item reveal reveal-delay-2">
+      <span class="timeline__year">1921</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Rodina sa usadila v <strong>Bratislave</strong>, kde Gregorová v nasledujúcich rokoch viedla literárny salón, v ktorom sa stretávali slovenské spisovateľky, novinárky a kultúrne činné ženy. Salón bol neformálnym centrom, aké v slovenskom prostredí dovtedy nemalo obdobu.</p>
+    </div>
+
+    <div class="timeline__item reveal reveal-delay-3">
+      <span class="timeline__year">1929</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Vyšla jej esejistická kniha <strong>Slovenka pri krbe a knihe</strong>, v ktorej priamo argumentovala za právo ženy na vzdelanie a duchovný rozvoj popri rodinnom živote. Titul je výstižný: krb a kniha nie sú protiklady. Môžu stáť vedľa seba.</p>
+    </div>
+
+    <div class="timeline__item reveal">
+      <span class="timeline__year">1940</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Jozef Gregor Tajovský zomrel. Gregorová sa po jeho smrti presťahovala do <strong>Prahy</strong>, kde žila zvyšok života. Napriek strate pokračovala v písaní a verejnej činnosti, teraz už ako uznávaná osobnosť so silným hlasom v otázkach ženských práv.</p>
+    </div>
+
+    <div class="timeline__item reveal reveal-delay-1">
+      <span class="timeline__year">1945</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Po skončení vojny sa ujala predsedníctva <strong>Zväzu slovenských žien</strong>, organizácie, ktorá mala zastupovať záujmy žien v obnovenej republike. Doviedla do vrcholnej polohy to, čo celý život hlásala: kolektívna sila žien je skutočná, ak ju niekto zorganizuje.</p>
+    </div>
+
+    <div class="timeline__item reveal reveal-delay-2">
+      <span class="timeline__year">1958</span>
+      <div class="timeline__dot" aria-hidden="true"></div>
+      <p class="timeline__text">Zomrela 11. decembra v Prahe vo veku 73 rokov. V roku 2023 jej bol in memoriam udelený <strong>Rád Ľudovíta Štúra</strong>, najvyššie slovenské štátne vyznamenanie za kultúrne zásluhy. Prišlo s oneskorením takmer sedemdesiatich rokov, čo samo o sebe hovorí dosť.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-comparison">
+  <div class="botanical-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#5A3520" stroke-width="0.5" fill="none" opacity="0.1">
+        <path d="M80 80 Q105 55 135 65"/><ellipse cx="132" cy="64" rx="8" ry="4" transform="rotate(-35 132 64)"/>
+        <path d="M1340 420 Q1365 395 1395 405"/><ellipse cx="1392" cy="404" rx="8" ry="4" transform="rotate(35 1392 404)"/>
+        <circle cx="350" cy="300" r="2" fill="#5A3520" opacity="0.4"/>
+        <circle cx="1100" cy="200" r="2" fill="#5A3520" opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-header reveal">
+    <p class="section-label section-label--pale">Čo nás učí dnes</p>
+    <h2 class="section-title section-title--cream">Vtedy aj dnes. Tá istá bitka.</h2>
+  </div>
+
+  <div class="comparison-table reveal">
+    <div class="comparison-table__header">
+      <div class="comparison-table__col-head comparison-table__col-head--vtedy">Vtedy (1885 – 1958)</div>
+      <div class="comparison-table__col-head comparison-table__col-head--dnes">Dnes (2025)</div>
+    </div>
+    <div class="comparison-table__row">
+      <div class="comparison-table__cell comparison-table__cell--vtedy">Ženina miesto je pri krbe, nie pri knižnici</div>
+      <div class="comparison-table__cell comparison-table__cell--dnes">Ženy v odborných pozíciách stále musia dokazovať viac než muži</div>
+    </div>
+    <div class="comparison-table__row">
+      <div class="comparison-table__cell comparison-table__cell--vtedy">Feminizmus je cudzie, nebezpečné slovo</div>
+      <div class="comparison-table__cell comparison-table__cell--dnes">Ženám sa odporúča „nestotožňovať sa" s feminizmom</div>
+    </div>
+    <div class="comparison-table__row">
+      <div class="comparison-table__cell comparison-table__cell--vtedy">Manžel je osud, nie spojenec</div>
+      <div class="comparison-table__cell comparison-table__cell--dnes">Partnerstvá, kde obaja majú hlas, sú ešte stále výnimkou</div>
+    </div>
+    <div class="comparison-table__row">
+      <div class="comparison-table__cell comparison-table__cell--vtedy">Salón vedený ženou vyvoláva údiv</div>
+      <div class="comparison-table__cell comparison-table__cell--dnes">Komunity žien sú ešte stále označované ako okrajové</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-vzor">
+  <div class="botanical-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#8B6543" stroke-width="0.5" fill="none" opacity="0.06">
+        <path d="M80 100 Q110 70 145 80"/><ellipse cx="142" cy="79" rx="9" ry="4" transform="rotate(-35 142 79)"/>
+        <path d="M1330 420 Q1360 390 1395 400"/><ellipse cx="1392" cy="399" rx="9" ry="4" transform="rotate(35 1392 399)"/>
+        <circle cx="400" cy="280" r="2" fill="#8B6543" opacity="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section-header reveal">
+    <p class="section-label">Vzor a región</p>
+    <h2 class="section-title section-title--dark">Martin, Bratislava, Praha. Vždy tam, kde bolo treba.</h2>
+  </div>
+
+  <div class="vzor-grid">
+    <div class="reveal reveal-delay-1">
+      <p class="vzor__region-badge">Martin · Košice · Bratislava · Praha</p>
+      <h3 class="vzor__title">Žena, ktorá si vybrala dosah</h3>
+      <div class="vzor__text">
+        <p>Gregorová nežila v ústraní. Pohybovala sa medzi kultúrnymi centrami podľa toho, kde vedela urobiť niečo zmysluplné. Martin jej dal korene, Bratislava priestor, Praha posledné roky. V každom meste budovala siete, písala a hovorila nahlas.</p>
+        <p>Bratislavský salón, ktorý viedla v dvadsiatych rokoch, nebol spoločenskou udalosťou. Bol miestom, kde sa slovenské ženy stretávali, diskutovali a organizovali. Gregorová vedela, že znalosť bez komunity zostáva súkromnou záležitosťou a iba organizovaný hlas má váhu.</p>
+      </div>
+    </div>
+
+    <div class="vzor__pattern reveal reveal-delay-2" aria-hidden="true">
+      <svg class="vzor__svg-ornament" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="260" height="260" stroke="rgba(250,244,238,0.12)" stroke-width="1"/>
+        <line x1="140" y1="30" x2="140" y2="250" stroke="rgba(250,244,238,0.35)" stroke-width="1.5"/>
+        <line x1="30" y1="140" x2="250" y2="140" stroke="rgba(250,244,238,0.35)" stroke-width="1.5"/>
+        <path d="M40 40 L70 40 L70 70 L40 70 Z" stroke="rgba(250,244,238,0.5)" stroke-width="1.2" fill="none"/>
+        <path d="M50 50 L60 50 L60 60 L50 60 Z" fill="rgba(250,244,238,0.3)"/>
+        <path d="M210 40 L240 40 L240 70 L210 70 Z" stroke="rgba(250,244,238,0.5)" stroke-width="1.2" fill="none"/>
+        <path d="M220 50 L230 50 L230 60 L220 60 Z" fill="rgba(250,244,238,0.3)"/>
+        <path d="M140 100 L180 140 L140 180 L100 140 Z" stroke="rgba(250,244,238,0.6)" stroke-width="1.5" fill="none"/>
+        <circle cx="140" cy="140" r="8" fill="rgba(250,244,238,0.4)"/>
+        <circle cx="140" cy="140" r="3" fill="rgba(250,244,238,0.8)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section-eshop">
+  <div class="botanical-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="rgba(250,244,238,0.08)" stroke-width="0.6" fill="none">
+        <path d="M80 80 Q110 50 145 60"/><ellipse cx="142" cy="59" rx="8" ry="4" transform="rotate(-35 142 59)"/>
+        <path d="M1330 420 Q1360 390 1395 400"/><ellipse cx="1392" cy="399" rx="8" ry="4" transform="rotate(35 1392 399)"/>
+      </g>
+    </svg>
+  </div>
+
+  <p class="eshop__eyebrow reveal">Zbierka Gregorová</p>
+
+  <svg class="ornament-line reveal" width="200" height="20" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="0" y1="10" x2="75" y2="10" stroke="rgba(250,244,238,0.25)" stroke-width="0.5"/>
+    <path d="M82 10 L89 4 L96 10 L89 16 Z" stroke="rgba(250,244,238,0.4)" stroke-width="0.8" fill="none"/>
+    <circle cx="100" cy="10" r="2" fill="rgba(250,244,238,0.5)"/>
+    <path d="M104 10 L111 4 L118 10 L111 16 Z" stroke="rgba(250,244,238,0.4)" stroke-width="0.8" fill="none"/>
+    <line x1="125" y1="10" x2="200" y2="10" stroke="rgba(250,244,238,0.25)" stroke-width="0.5"/>
+  </svg>
+
+  <h2 class="eshop__title reveal">Nos jej odkaz.</h2>
+  <p class="eshop__subtitle reveal">Odvaha nie je neprítomnosť pochybností. Je to rozhodnutie hovoriť aj napriek nim.</p>
+
+  <div class="product-cards">
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-card__image">
+        <p class="product-card__mockup">Mikina</p>
+        <p class="product-card__vlastnost-big">ODVAHA</p>
+      </div>
+      <div class="product-card__body">
+        <p class="product-card__type">Mikina · Unisex</p>
+        <p class="product-card__name">Gregorová ODVAHA</p>
+        <p class="product-card__price">od 48 €</p>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-card__image">
+        <p class="product-card__mockup">Tote bag</p>
+        <p class="product-card__vlastnost-big">ODVAHA</p>
+      </div>
+      <div class="product-card__body">
+        <p class="product-card__type">Tote bag</p>
+        <p class="product-card__name">Gregorová ODVAHA</p>
+        <p class="product-card__price">od 18 €</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="/eshop/?zena=gregorova" class="btn btn--ghost reveal">
+    Pozrieť produkty <span class="btn__arrow">→</span>
+  </a>
+</section>
+
+<section class="section-next" aria-label="Ďalšia rebelka">
+  <div class="botanical-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#5A3520" stroke-width="0.5" fill="none" opacity="0.08">
+        <path d="M80 50 Q110 25 145 35"/><ellipse cx="142" cy="34" rx="8" ry="4" transform="rotate(-35 142 34)"/>
+        <path d="M1330 270 Q1360 245 1395 255"/><ellipse cx="1392" cy="254" rx="8" ry="4" transform="rotate(35 1392 254)"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="next__illustration reveal" aria-label="Ilustrácia Eleny Maróthy-Šoltésovej">Š</div>
+
+  <div class="reveal reveal-delay-1">
+    <p class="next__label">Ďalšia rebelka</p>
+    <h2 class="next__name">Elena Maróthy-Šoltésová</h2>
+    <p class="next__vlastnost">Pokora</p>
+    <p style="font-size:0.9rem; font-weight:300; color:var(--dust); line-height:1.75; max-width:40ch; margin-bottom:1.75rem;">
+      Tridsaťtri rokov stála na čele Živeny, prvého slovenského ženského spolku. Zakladala školy, redigovala časopisy, vychovávala generáciu žien, ktoré po nej prišli. Keď stratila obe deti, napísala o tom knihu. Robila len to, čo považovala za správne.
+    </p>
+    <a href="/zeny-rebelky/soltesova/" class="btn btn--ghost">
+      Spoznaj Šoltésovú <span class="btn__arrow">→</span>
+    </a>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <a href="/" class="nav__logo">Slovenky <span>pred nami</span></a>
+      <p class="footer__tagline">„Ona tu bola prvá."</p>
+      <div class="footer__social">
+        <a href="https://instagram.com/slovenkyprednami" aria-label="Instagram">IG</a>
+        <a href="https://facebook.com/slovenkyprednami" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer__col-title">Ženy rebelky</p>
+      <ul class="footer__links">
+        <li><a href="/zeny-rebelky/soltesova/">Elena Maróthy-Šoltésová</a></li>
+        <li><a href="/zeny-rebelky/timrava/">Božena Slančíková-Timrava</a></li>
+        <li><a href="/zeny-rebelky/vansova/">Terézia Vansová</a></li>
+        <li><a href="/zeny-rebelky/gregorova/">Hana Gregorová</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-title">Ďalšie</p>
+      <ul class="footer__links">
+        <li><a href="/eshop/">E-shop</a></li>
+        <li><a href="/o-nas/">O nás</a></li>
+        <li><a href="/kontakt/">Kontakt</a></li>
+        <li><a href="/sukromie/">Ochrana súkromia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Anna Lockwoodová · slovenkyprednami.sk</span>
+    <span>Vytvorené s láskou k ženám, ktoré boli pred nami.</span>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+cursor.style.left = ring.style.left = '0px';
+cursor.style.top  = ring.style.top  = '0px';
+(function animCursor() {
+  cursor.style.transform = `translate(${mx}px, ${my}px)`;
+  rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+  ring.style.transform = `translate(${rx}px, ${ry}px)`;
+  requestAnimationFrame(animCursor);
+})();
+
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
+});
+
+function initHoverListeners() {
+  document.querySelectorAll('a, button, .product-card').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+  });
+}
+initHoverListeners();
+
+function initScrollReveal() {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+  els.forEach(el => { el.classList.remove('visible'); obs.observe(el); });
+}
+initScrollReveal();
+
+barba.init({
+  transitions: [{
+    name: 'botanical-curtain',
+    leave({ current }) {
+      document.documentElement.classList.add('is-transitioning');
+      return new Promise(resolve => {
+        gsap.timeline({ onComplete: resolve })
+          .to(current.container, { opacity: 0, y: -12, duration: 0.3, ease: 'power2.in' })
+          .to('#pageCurtain', { scaleY: 1, duration: 0.5, ease: 'power3.inOut', transformOrigin: 'bottom center' }, '-=0.15');
+      });
+    },
+    enter({ next }) {
+      window.scrollTo(0, 0);
+      return new Promise(resolve => {
+        gsap.timeline({ onComplete: resolve })
+          .to('#pageCurtain', { scaleY: 0, duration: 0.55, ease: 'power3.inOut', transformOrigin: 'top center' })
+          .from(next.container, { opacity: 0, y: 12, duration: 0.4, ease: 'power2.out' }, '-=0.25');
+      });
+    },
+    after() { document.documentElement.classList.remove('is-transitioning'); }
+  }],
+  views: [{
+    namespace: 'gregorova',
+    afterEnter() { initScrollReveal(); initHoverListeners(); }
+  }]
+});
+</script>
+</body>
+</html>
