@@ -1,0 +1,11 @@
+{
+  "name": "slovenky-pred-nami",
+  "version": "1.0.0",
+  "description": "Slovenky pred nami — statická webstránka",
+  "scripts": {
+    "start": "npx serve . --listen 3000 --single",
+    "dev": "npx live-server --port=3000 --open=/ --no-browser-open-command",
+    "serve": "npx serve . --listen 3000"
+  },
+  "private": true
+}

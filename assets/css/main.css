@@ -1927,6 +1927,111 @@ body::before {
 .rebelka-col--today .rebelka-col__eyebrow { color: var(--clay); }
 .rebelka-col--today ul li::before { background: var(--dust); }
 
+/* ─── SECTION: REBELSKÝ MOMENT ───────────────────────────── */
+.section-rebelia {
+  background: var(--ink);
+  padding: 8rem 2rem;
+  position: relative; overflow: hidden;
+}
+.section-rebelia > *:not(.botanical-bg) { position: relative; z-index: 1; }
+
+.rebelia__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.rebelia__eyebrow {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--violet-light);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.rebelia__eyebrow::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--violet-light);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.rebelia__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--cream-warm);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.rebelia__story {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+.rebelia__story p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(250, 244, 238, 0.72);
+  line-height: 1.85;
+  margin: 0;
+}
+.rebelia__story strong {
+  color: var(--cream-warm);
+  font-weight: 500;
+}
+
+.rebelia__pull {
+  font-family: var(--font-lit);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 400;
+  color: var(--violet-light);
+  line-height: 1.45;
+  border-left: 2px solid var(--violet-muted);
+  padding-left: 1.75rem;
+  margin: 0.5rem 0;
+  font-style: normal;
+}
+
+.rebelia__cta-text {
+  font-size: 0.92rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(250, 244, 238, 0.52);
+  line-height: 1.75;
+  border-top: 1px solid rgba(250, 244, 238, 0.1);
+  padding-top: 1.75rem;
+  margin: 0;
+}
+
+/* Dekoratívne písmeno v pozadí */
+.rebelia__bg-letter {
+  position: absolute;
+  right: -0.05em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(18rem, 30vw, 26rem);
+  color: rgba(250, 244, 238, 0.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@media (max-width: 700px) {
+  .rebelia__pull { font-size: 1.4rem; padding-left: 1.25rem; }
+  .rebelia__bg-letter { font-size: 14rem; }
+}
+
 /* ─── SECTION: TIMELINE ──────────────────────────────────── */
 .section-timeline {
   background: var(--warm-brown);
