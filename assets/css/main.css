@@ -210,7 +210,7 @@ body::before {
 
 /* Ostatné sekcie — rovnaký vzor, iná priehľadnosť */
 .section-women { position: relative; }
-.section-women .botanical-bg svg { opacity: 1; }
+.section-women .botanical-bg svg { opacity: 0.05; }
 .section-quote { position: relative; }
 .section-newsletter { position: relative; }
 
@@ -852,14 +852,20 @@ body::before {
 
 /* ─── SECTION: PÄŤ VLASTNOSTÍ ────────────────────────────── */
 .section-women {
-  background: var(--cream-warm);
-  padding: 4.5rem 2rem 5rem;
+  background: var(--earth-deep);
+  padding: 5rem 0 0;
   position: relative;
 }
 .section-women__header {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
+  padding: 0 5rem;
 }
+.section-women .section-title       { color: var(--cream-warm); }
+.section-women .section-women__sub  { color: rgba(224,184,158,0.62); }
+.section-women .section-label       { color: var(--accent); }
+.section-women .section-label::before,
+.section-women .section-label::after { background: var(--accent); }
 .section-label {
   display: inline-flex; align-items: center; gap: 0.75rem;
   font-size: 0.65rem; font-weight: 600;
@@ -1038,6 +1044,231 @@ body::before {
 .woman-card:hover .woman-card__vlastnost {
   letter-spacing: 0.26em;
   padding-right: 0.85rem;
+}
+
+/* ─── WOMEN PANELS — editorial full-width ─────────────────── */
+.women-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.woman-panel {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  min-height: 54vh;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
+  transition: background 0.6s ease;
+}
+.woman-panel:last-child {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.woman-panel:nth-child(even) {
+  grid-template-columns: 48% 52%;
+}
+.woman-panel:nth-child(even) .woman-panel__visual { order: 2; }
+.woman-panel:nth-child(even) .woman-panel__info   { order: 1; }
+.woman-panel:hover { background: rgba(255,255,255,0.013); }
+
+/* ── Ghost virtue word spanning full panel ── */
+.woman-panel__virtue-bg {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; user-select: none;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 13vw, 16rem);
+  font-weight: 400;
+  letter-spacing: 0.38em;
+  color: rgba(250,244,238,0.032);
+  transition: letter-spacing 1.8s cubic-bezier(0.16,1,0.3,1),
+              color 1s ease;
+}
+.woman-panel:hover .woman-panel__virtue-bg {
+  letter-spacing: 0.05em;
+  color: rgba(250,244,238,0.06);
+}
+
+/* ── Visual (illustration) side ── */
+.woman-panel__visual {
+  position: relative; z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  padding: 3rem 3rem 0;
+  /* entry animation — initial state */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.05s cubic-bezier(0.16,1,0.3,1),
+              transform 1.1s cubic-bezier(0.16,1,0.3,1);
+}
+.woman-panel__visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(139,94,60,0.09) 0%, transparent 65%);
+  z-index: 0;
+  pointer-events: none;
+}
+.woman-panel__visual img {
+  position: relative; z-index: 1;
+  width: auto; max-width: 82%;
+  height: 100%; max-height: 44vh;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  filter: drop-shadow(0 28px 44px rgba(0,0,0,0.38));
+  transition: transform 1.1s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.woman-panel:hover .woman-panel__visual img {
+  transform: scale(1.05) translateY(-7px);
+}
+
+/* ── Info side ── */
+.woman-panel__info {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 4.5rem 3.5rem 3.5rem;
+  /* entry animation — initial state */
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.22s,
+              transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.22s;
+}
+.woman-panel:nth-child(even) .woman-panel__info {
+  padding: 3.5rem 3.5rem 3.5rem 4.5rem;
+  transform: translateX(28px);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.22s,
+              transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.22s;
+}
+
+/* Vertical accent line on divider side */
+.woman-panel__info::before {
+  content: '';
+  position: absolute;
+  top: 25%; bottom: 25%;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(184,132,90,0.18), transparent);
+  transition: top 0.55s ease, bottom 0.55s ease, background 0.55s ease;
+}
+.woman-panel:nth-child(even) .woman-panel__info::before {
+  left: auto; right: 0;
+}
+.woman-panel:hover .woman-panel__info::before {
+  top: 10%; bottom: 10%;
+  background: linear-gradient(to bottom, transparent, rgba(184,132,90,0.4), transparent);
+}
+
+/* ── Panel-in state (added by JS IntersectionObserver) ── */
+.woman-panel.panel-in .woman-panel__visual,
+.woman-panel.panel-in .woman-panel__info {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ── Info content elements ── */
+.woman-panel__num {
+  display: block;
+  font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--accent); opacity: 0.45;
+  margin-bottom: 2rem;
+  transition: opacity 0.4s ease;
+}
+.woman-panel:hover .woman-panel__num { opacity: 1; }
+
+.woman-panel__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.7vw, 2.7rem);
+  font-weight: 400;
+  color: var(--cream-warm);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  transition: color 0.35s ease;
+}
+.woman-panel:hover .woman-panel__name { color: #fff; }
+
+.woman-panel__virtue-tag {
+  display: block;
+  font-size: 0.57rem; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(184,132,90,0.5);
+  margin-bottom: 0.55rem;
+  transition: color 0.45s ease, letter-spacing 0.55s ease;
+}
+.woman-panel:hover .woman-panel__virtue-tag {
+  color: var(--accent);
+  letter-spacing: 0.38em;
+}
+
+.woman-panel__meta {
+  font-size: 0.6rem; font-weight: 300;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: rgba(224,184,158,0.38);
+  margin-bottom: 2.8rem;
+}
+
+.woman-panel__cta {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.woman-panel__cta::after {
+  content: '→';
+  transition: transform 0.35s ease;
+}
+.woman-panel:hover .woman-panel__cta {
+  opacity: 1;
+  transform: translateX(0);
+}
+.woman-panel:hover .woman-panel__cta::after {
+  transform: translateX(5px);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .woman-panel .woman-panel__visual,
+  .woman-panel .woman-panel__info {
+    transition: opacity 0.4s ease !important;
+    transform: none !important;
+  }
+  .woman-panel__virtue-bg {
+    transition: none !important;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .woman-panel,
+  .woman-panel:nth-child(even) {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .woman-panel__visual,
+  .woman-panel:nth-child(even) .woman-panel__visual { order: 1; }
+  .woman-panel__info,
+  .woman-panel:nth-child(even) .woman-panel__info   { order: 2; }
+  .woman-panel__visual { height: 52vw; min-height: 220px; padding: 1.5rem 2rem 0; }
+  .woman-panel__visual img { max-height: 90%; }
+  .woman-panel__info,
+  .woman-panel:nth-child(even) .woman-panel__info {
+    padding: 2rem 2rem 2.5rem;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s;
+  }
+  .woman-panel__info::before,
+  .woman-panel:nth-child(even) .woman-panel__info::before { display: none; }
+  .section-women__header { padding: 0 2rem; }
 }
 
 /* ─── ICH PRÍBEHY ────────────────────────────────────────── */
