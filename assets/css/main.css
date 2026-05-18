@@ -215,7 +215,7 @@ body::before {
 .section-newsletter { position: relative; }
 
 /* Všetok obsah nad vzorem */
-.hero > *:not(.botanical-bg) { position: relative; z-index: 1; }
+.hero > *:not(.botanical-bg):not(.hero__bg):not(.hero__editorial-letter) { position: relative; z-index: 1; }
 .section-women > *:not(.botanical-bg) { position: relative; z-index: 1; }
 .section-quote > *:not(.botanical-bg) { position: relative; z-index: 1; }
 .section-newsletter > *:not(.botanical-bg) { position: relative; z-index: 1; }
@@ -632,18 +632,67 @@ body::before {
 }
 
 /* ─── HERO (subpage) ─────────────────────────────────────── */
+/* ─── HERO — SUBPAGE (editorial full-bleed) ──────────────── */
 .hero--subpage {
   min-height: 100vh;
-  background: var(--earth);
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 4rem;
-  align-items: center;
-  padding: 5rem 5rem 4rem;
-  position: relative; overflow: hidden;
+  background: var(--earth-deep);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero__left { position: relative; z-index: 1; }
+/* correct stacking within subpage hero */
+.hero--subpage > .botanical-bg { z-index: 1; }
+.hero--subpage > .hero__editorial-letter { z-index: 2 !important; }
+.hero--subpage > .hero__content { z-index: 3 !important; }
+
+/* full-bleed photo — beneath everything, including botanical pattern */
+.hero__bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+.hero__bg-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.28;
+  filter: sepia(0.2) contrast(1.05);
+}
+.hero__bg-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 3, 1, 0.98) 0%,
+    rgba(8, 3, 1, 0.84) 28%,
+    rgba(8, 3, 1, 0.48) 58%,
+    rgba(8, 3, 1, 0.14) 100%
+  );
+}
+
+/* large atmospheric initial — far right */
+.hero__editorial-letter {
+  position: absolute;
+  right: 2vw;
+  bottom: 3rem;
+  font-family: var(--font-display);
+  font-size: clamp(18rem, 28vw, 34rem);
+  line-height: 1;
+  color: rgba(250, 244, 238, 0.042);
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* text content block — anchored bottom-left */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 5rem 5rem;
+  max-width: 860px;
+}
 
 .hero__badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -654,8 +703,6 @@ body::before {
   border-radius: var(--r-pill);
   padding: 0.35rem 1rem;
   margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 0.7s var(--ease-out) 0.3s forwards;
 }
 .hero__badge::before {
   content: '';
@@ -667,13 +714,11 @@ body::before {
 .hero__name {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-size: clamp(3.2rem, 6.5vw, 5.8rem);
   line-height: 1.0;
   letter-spacing: -0.02em;
-  color: var(--cream);
+  color: var(--cream-warm);
   margin-bottom: 0.75rem;
-  opacity: 0;
-  animation: slideUp 1s var(--ease-out) 0.5s forwards;
 }
 
 .hero__meta {
@@ -681,57 +726,20 @@ body::before {
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--dust);
   margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeUp 0.8s var(--ease-out) 0.7s forwards;
 }
 .hero__meta-sep { margin: 0 0.5rem; opacity: 0.4; }
 
 .hero__perex {
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.08rem);
   font-weight: 300;
   line-height: 1.85;
-  color: var(--petal);
-  max-width: 52ch;
+  color: rgba(224, 184, 158, 0.72);
+  max-width: 54ch;
   margin-bottom: 2.5rem;
-  opacity: 0;
-  animation: fadeUp 0.9s var(--ease-out) 0.9s forwards;
 }
 
 .hero__cta {
-  opacity: 0;
-  animation: fadeUp 0.8s var(--ease-out) 1.1s forwards;
   display: flex; gap: 1rem; flex-wrap: wrap;
-}
-
-.hero__illustration {
-  position: relative; z-index: 1;
-  width: 100%;
-  aspect-ratio: 5/7;
-  border-radius: var(--r-lg);
-  background: linear-gradient(160deg, var(--warm-brown) 0%, var(--earth) 100%);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-  opacity: 0;
-  animation: fadeUp 1s var(--ease-out) 0.6s forwards;
-  box-shadow: var(--shadow-card);
-}
-.hero__illustration-letter {
-  font-family: var(--font-display);
-  font-size: 14rem;
-  font-weight: 400;
-  color: rgba(250,244,238,0.07);
-  user-select: none;
-  line-height: 1;
-}
-.hero__illustration-img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-.hero__illustration-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(26,13,6,0.5) 0%, transparent 50%);
 }
 
 .hero__ornament--subpage {
@@ -746,8 +754,6 @@ body::before {
   color: var(--dust);
   display: flex; align-items: center; gap: 0.6rem;
   margin-bottom: 1.75rem;
-  opacity: 0;
-  animation: fadeUp 0.7s var(--ease-out) 0.2s forwards;
 }
 .breadcrumb a { color: var(--dust); transition: color 0.2s; }
 .breadcrumb a:hover { color: var(--violet-light); }
@@ -2468,14 +2474,9 @@ html.is-transitioning {
   .section-test-teaser { grid-template-columns: 1fr; }
   .test-teaser__right { min-height: 320px; }
   /* subpage hero */
-  .hero--subpage {
-    grid-template-columns: 1fr;
-    padding: 5rem 2.5rem 3.5rem;
-    text-align: center;
-  }
-  .hero__illustration { max-width: 340px; margin: 0 auto; }
-  .hero__cta { justify-content: center; }
-  .breadcrumb { justify-content: center; }
+  .hero__content { padding: 0 2.5rem 3.5rem; }
+  .hero__editorial-letter { font-size: clamp(14rem, 22vw, 22rem); }
+  .hero__cta { justify-content: flex-start; }
   .rebelka-grid { grid-template-columns: 1fr; max-width: 520px; }
   .vzor-grid { grid-template-columns: 1fr; }
   .vzor__pattern { max-width: 300px; margin: 0 auto; }
@@ -2492,7 +2493,8 @@ html.is-transitioning {
   body { cursor: auto; }
   .cursor, .cursor__ring { display: none; }
   /* subpage */
-  .hero--subpage { padding: 4.5rem 1.5rem 3rem; }
+  .hero__content { padding: 0 1.5rem 3rem; }
+  .hero__editorial-letter { display: none; }
   .comparison-table__header,
   .comparison-table__row { grid-template-columns: 1fr; }
   .comparison-table__cell--vtedy { border-right: none; border-bottom: 1px solid var(--divider); }
@@ -2501,7 +2503,7 @@ html.is-transitioning {
 @media (max-width: 480px) {
   .women-grid { grid-template-columns: 1fr 1fr; }
   .hero__names { display: none; }
-  .hero__name { font-size: 2.2rem; }
+  .hero__name { font-size: clamp(2.4rem, 10vw, 3.2rem); }
 
   /* Hero title — shrink so SLOVENKY fits without clipping */
   .hero > .hero__header { padding: 4rem 1.25rem 0; }
