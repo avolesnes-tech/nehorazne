@@ -639,7 +639,7 @@ body::before {
   grid-template-columns: 1fr 420px;
   gap: 4rem;
   align-items: center;
-  padding: 8rem 5rem 5rem;
+  padding: 5rem 5rem 4rem;
   position: relative; overflow: hidden;
 }
 
@@ -799,7 +799,7 @@ body::before {
 /* ─── SECTION: PÄŤ VLASTNOSTÍ ────────────────────────────── */
 .section-women {
   background: var(--cream-warm);
-  padding: 7rem 2rem 8rem;
+  padding: 4.5rem 2rem 5rem;
   position: relative;
 }
 .section-women__header {
@@ -989,7 +989,7 @@ body::before {
 /* ─── ICH PRÍBEHY ────────────────────────────────────────── */
 .section-stories {
   background: var(--earth-deep);
-  padding: 7rem 2rem 6rem;
+  padding: 4.5rem 2rem;
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 .section-stories .section-header { margin-bottom: 4rem; }
@@ -1060,7 +1060,7 @@ body::before {
 /* ─── ŽIVENA ─────────────────────────────────────────────── */
 .section-zivena {
   background: var(--cream-warm);
-  padding: 7rem 2rem 6rem;
+  padding: 4.5rem 2rem;
   border-top: 1px solid rgba(184,132,90,0.15);
 }
 .zivena-heading {
@@ -1152,7 +1152,7 @@ body::before {
 /* ─── PULL QUOTE ──────────────────────────────────────────── */
 .section-quote {
   background: var(--cream);
-  padding: 7rem 2rem;
+  padding: 4.5rem 2rem;
   position: relative; overflow: hidden;
   border-top: 1px solid rgba(184,132,90,0.15);
   border-bottom: 1px solid rgba(184,132,90,0.15);
@@ -1194,7 +1194,7 @@ body::before {
 /* ─── SECTION: TEST TEASER + EMBEDDED TEST ───────────────── */
 .section-test-teaser {
   background: var(--violet-pale);
-  padding: 7rem 2rem 6rem;
+  padding: 4.5rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1297,7 +1297,7 @@ body::before {
 /* ─── SECTION: TEST ──────────────────────────────────────── */
 .section-test {
   background: var(--cream-warm);
-  padding: 6rem 2rem;
+  padding: 3.5rem 2rem;
   border-top: 1px solid rgba(184,132,90,0.12);
 }
 .test-wrapper {
@@ -1490,7 +1490,7 @@ body::before {
 /* ─── LISTOVÁ KOREŠPONDENCIA ─────────────────────────────── */
 .section-listy {
   background: #1A0F08;
-  padding: 9rem 2rem 8rem;
+  padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -1727,7 +1727,7 @@ body::before {
 }
 /* Mobile */
 @media (max-width: 600px) {
-  .section-listy { padding: 6rem 1.5rem 5rem; }
+  .section-listy { padding: 4rem 1.5rem 3.5rem; }
   .listy-letter-wrap { max-width: 300px; }
   .listy-heading { font-size: 3rem; }
 }
@@ -1735,7 +1735,7 @@ body::before {
 /* ─── E-SHOP ──────────────────────────────────────────────── */
 .section-shop {
   background: var(--cream);
-  padding: 6rem 2rem;
+  padding: 3.5rem 2rem;
   text-align: center;
 }
 .section-shop .section-title { color: var(--ink); }
@@ -1837,7 +1837,7 @@ body::before {
 /* ─── SECTION: NEWSLETTER ────────────────────────────────── */
 .section-newsletter {
   background: var(--violet);
-  padding: 6rem 2rem;
+  padding: 3.5rem 2rem;
   text-align: center;
   border-top: 1px solid rgba(166,120,150,0.2);
 }
@@ -1876,7 +1876,7 @@ body::before {
 /* ─── SECTION: PREČO BOLA REBELKA ────────────────────────── */
 .section-rebelka {
   background: var(--cream);
-  padding: 7rem 2rem;
+  padding: 4.5rem 2rem;
   position: relative; overflow: hidden;
 }
 
@@ -1930,7 +1930,7 @@ body::before {
 /* ─── SECTION: REBELSKÝ MOMENT ───────────────────────────── */
 .section-rebelia {
   background: var(--ink);
-  padding: 8rem 2rem;
+  padding: 5rem 2rem;
   position: relative; overflow: hidden;
 }
 .section-rebelia > *:not(.botanical-bg) { position: relative; z-index: 1; }
@@ -2035,7 +2035,7 @@ body::before {
 /* ─── SECTION: TIMELINE ──────────────────────────────────── */
 .section-timeline {
   background: var(--warm-brown);
-  padding: 7rem 2rem;
+  padding: 4.5rem 2rem;
   position: relative; overflow: hidden;
 }
 
@@ -2092,7 +2092,7 @@ body::before {
 /* ─── SECTION: VTEDY / DNES ──────────────────────────────── */
 .section-comparison {
   background: var(--earth);
-  padding: 7rem 2rem;
+  padding: 4.5rem 2rem;
   position: relative; overflow: hidden;
 }
 
@@ -2141,7 +2141,7 @@ body::before {
 /* ─── SECTION: VZOR A REGIÓN ─────────────────────────────── */
 .section-vzor {
   background: var(--cream-warm);
-  padding: 7rem 2rem;
+  padding: 4.5rem 2rem;
   position: relative; overflow: hidden;
 }
 
@@ -2194,7 +2194,7 @@ body::before {
 /* ─── SECTION: CTA E-SHOP ────────────────────────────────── */
 .section-eshop {
   background: var(--violet);
-  padding: 7rem 2rem;
+  padding: 4.5rem 2rem;
   text-align: center;
   position: relative; overflow: hidden;
 }
@@ -2268,7 +2268,7 @@ body::before {
 /* ─── SECTION: ĎALŠIA REBELKA ────────────────────────────── */
 .section-next {
   background: var(--earth-deep);
-  padding: 6rem 2rem;
+  padding: 3.5rem 2rem;
   display: flex; align-items: center; justify-content: center;
   gap: 4rem;
   position: relative; overflow: hidden;
@@ -2465,7 +2465,7 @@ html.is-transitioning {
   /* subpage hero */
   .hero--subpage {
     grid-template-columns: 1fr;
-    padding: 8rem 2.5rem 5rem;
+    padding: 5rem 2.5rem 3.5rem;
     text-align: center;
   }
   .hero__illustration { max-width: 340px; margin: 0 auto; }
@@ -2487,7 +2487,7 @@ html.is-transitioning {
   body { cursor: auto; }
   .cursor, .cursor__ring { display: none; }
   /* subpage */
-  .hero--subpage { padding: 7rem 1.5rem 4rem; }
+  .hero--subpage { padding: 4.5rem 1.5rem 3rem; }
   .comparison-table__header,
   .comparison-table__row { grid-template-columns: 1fr; }
   .comparison-table__cell--vtedy { border-right: none; border-bottom: 1px solid var(--divider); }
