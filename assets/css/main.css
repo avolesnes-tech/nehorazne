@@ -656,8 +656,9 @@ body::before {
   to   { transform: scale(1.0); }
 }
 @keyframes heroVirtueIn {
-  from { opacity: 0; letter-spacing: 0.22em; }
-  to   { opacity: 1; letter-spacing: 0.1em; }
+  0%   { opacity: 0;    letter-spacing: 0.42em; }
+  18%  { opacity: 0.06; }
+  100% { opacity: 1;    letter-spacing: 0.1em; }
 }
 
 /* full-bleed photo — beneath everything */
@@ -695,10 +696,11 @@ body::before {
 }
 
 /* ── VIRTUE WORD overlay (POKORA / UPRÍMNOSŤ / …) ─────────── */
+/* sits in the upper photo zone — never overlaps the bottom content */
 .hero__virtue-word {
   left: 0; right: 0;
-  top: 50%;
-  transform: translateY(-62%);
+  top: 34%;
+  transform: translateY(-50%);
   text-align: center;
   font-family: var(--font-display);
   font-size: clamp(5.5rem, 20vw, 21rem);
@@ -706,11 +708,12 @@ body::before {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: rgba(250, 244, 238, 0.082);
+  color: rgba(250, 244, 238, 0.09);
   user-select: none;
   pointer-events: none;
   opacity: 0;
-  animation: heroVirtueIn 2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  /* slow, smooth — letters drift from wide spacing into place */
+  animation: heroVirtueIn 5s cubic-bezier(0.32, 0, 0.12, 1) 0.5s forwards;
 }
 
 /* large atmospheric initial — far right */
@@ -1197,6 +1200,23 @@ body::before {
 .share-btn--copy { background: transparent; color: var(--cream); border-color: rgba(250,244,238,0.3); }
 
 /* ─── PULL QUOTE ──────────────────────────────────────────── */
+/* ─── SUBPAGE INTRO PEREX (between hero and pull quote) ─── */
+.section-perex {
+  background: var(--earth-deep);
+  padding: 4rem 2rem 3.5rem;
+  border-bottom: 1px solid rgba(184,132,90,0.12);
+}
+.section-perex__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.section-perex__text {
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(224, 184, 158, 0.78);
+}
+
 .section-quote {
   background: var(--cream);
   padding: 4.5rem 2rem;
@@ -2537,14 +2557,13 @@ html.is-transitioning {
   /* subpage */
   .hero__content { padding: 0 1.5rem 3rem; }
   .hero__editorial-letter { display: none; }
-  /* virtue word — keep it legible on narrow screens */
+  /* virtue word — keep it from overlapping name on narrow screens */
   .hero__virtue-word {
     font-size: clamp(3.8rem, 18vw, 8rem);
-    letter-spacing: 0.06em;
-    transform: translateY(-55%);
+    top: 28%;
   }
-  /* photo shows face on portrait screens */
-  .hero__bg-img { object-position: center 15%; }
+  /* photo — show face, not chest */
+  .hero__bg-img { object-position: center 12%; }
   .comparison-table__header,
   .comparison-table__row { grid-template-columns: 1fr; }
   .comparison-table__cell--vtedy { border-right: none; border-bottom: 1px solid var(--divider); }
