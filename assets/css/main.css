@@ -2336,6 +2336,29 @@ body::before {
 }
 
 /* ─── SECTION: ĎALŠIA REBELKA ────────────────────────────── */
+/* ─── PAGE SOURCES (zdroje pod stránkou) ────────────────── */
+.page-sources {
+  background: var(--earth-deep);
+  padding: 1.25rem 5rem;
+  border-top: 1px solid rgba(184,132,90,0.1);
+}
+.page-sources p {
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(184,132,90,0.42);
+}
+.page-sources a {
+  color: rgba(184,132,90,0.55);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page-sources a:hover { color: var(--dust); }
+
+@media (max-width: 768px) {
+  .page-sources { padding: 1rem 1.5rem; }
+}
+
 .section-next {
   background: var(--earth-deep);
   padding: 3.5rem 2rem;
