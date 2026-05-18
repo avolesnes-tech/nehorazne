@@ -215,7 +215,7 @@ body::before {
 .section-newsletter { position: relative; }
 
 /* Všetok obsah nad vzorem */
-.hero > *:not(.botanical-bg):not(.hero__bg):not(.hero__editorial-letter):not(.hero__virtue-word) { position: relative; z-index: 1; }
+.hero > *:not(.botanical-bg) { position: relative; z-index: 1; }
 .section-women > *:not(.botanical-bg) { position: relative; z-index: 1; }
 .section-quote > *:not(.botanical-bg) { position: relative; z-index: 1; }
 .section-newsletter > *:not(.botanical-bg) { position: relative; z-index: 1; }
@@ -644,11 +644,12 @@ body::before {
   overflow: hidden;
 }
 
-/* correct stacking within subpage hero */
-.hero--subpage > .botanical-bg    { z-index: 1; }
-.hero--subpage > .hero__virtue-word { z-index: 2 !important; position: absolute !important; }
-.hero--subpage > .hero__editorial-letter { z-index: 2 !important; }
-.hero--subpage > .hero__content   { z-index: 3 !important; }
+/* correct stacking within subpage hero — !important beats .hero > *:not(.botanical-bg) */
+.hero--subpage > .botanical-bg         { z-index: 1; }
+.hero--subpage > .hero__bg             { position: absolute !important; inset: 0; z-index: 0; }
+.hero--subpage > .hero__editorial-letter { position: absolute !important; z-index: 2; }
+.hero--subpage > .hero__virtue-word    { position: absolute !important; z-index: 2; }
+.hero--subpage > .hero__content        { position: relative !important; z-index: 3; }
 
 /* ── Ken Burns zoom-out on photo ──────────────────────────── */
 @keyframes heroImgZoom {
