@@ -501,7 +501,7 @@ body::before {
   display: block;
   font-weight: 300;
   font-style: italic;
-  color: var(--cream-warm);
+  color: var(--violet-muted);
   letter-spacing: 0.02em;
   /* opacity + entry handled by GSAP */
 }
