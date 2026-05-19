@@ -1075,25 +1075,47 @@ body::before {
 
 /* ── Ghost virtue word spanning full panel ── */
 /* font-size capped so even UPRÍMNOSŤ (9 chars) fits in panel width  */
-/* animation: scale + opacity only — no letter-spacing change which   */
-/* causes long words to bleed far off screen                          */
+/* ── Virtue word — vertical editorial side label ──────────────────── */
+/* Lives inside .woman-panel__visual so it's fully contained and      */
+/* never overlaps the info column or the woman's name/illustration.   */
 .woman-panel__virtue-bg {
-  position: absolute; inset: 0; z-index: 0;
-  display: flex; align-items: center; justify-content: center;
-  pointer-events: none; user-select: none;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(calc(-50% + 24px));
+  z-index: 3;
+  writing-mode: vertical-rl;
+  rotate: 180deg;          /* reads bottom → top on left edge */
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6.5vw, 8.5rem);
+  font-size: clamp(0.58rem, 0.75vw, 0.7rem);
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(250,244,238,0.18);
   white-space: nowrap;
-  color: rgba(250,244,238,0.04);
-  transform: scale(1.08);
-  transition: transform 1.4s cubic-bezier(0.16,1,0.3,1),
-              color 0.9s ease;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition:
+    color      0.6s ease,
+    opacity    0.9s ease        0.7s,
+    transform  1s cubic-bezier(0.16,1,0.3,1) 0.7s;
 }
+/* Even panels: image is on the right, so label goes on the right edge */
+.woman-panel:nth-child(even) .woman-panel__virtue-bg {
+  left: auto;
+  right: 1rem;
+  rotate: 0deg;            /* reads top → bottom on right edge */
+}
+/* Scroll-reveal: slide into final position */
+.woman-panel.panel-in .woman-panel__virtue-bg {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+/* Hover: brighten and subtle letter-spacing nudge */
 .woman-panel:hover .woman-panel__virtue-bg {
-  transform: scale(1.0);
-  color: rgba(250,244,238,0.09);
+  color: rgba(250,244,238,0.72);
+  letter-spacing: 0.42em;
 }
 
 /* ── Visual (illustration) side ── */
@@ -1230,7 +1252,7 @@ body::before {
     transform: none !important;
   }
   .woman-panel__virtue-bg {
-    transition: none !important;
+    transition: color 0.3s ease, opacity 0.3s ease !important;
   }
 }
 
@@ -1247,6 +1269,8 @@ body::before {
   .woman-panel:nth-child(even) .woman-panel__info   { order: 2; }
   .woman-panel__visual { height: 52vw; min-height: 220px; padding: 1.5rem 2rem 0; }
   .woman-panel__visual img { max-height: 90%; }
+  .woman-panel__virtue-bg { font-size: 0.58rem; letter-spacing: 0.26em; left: 0.6rem; }
+  .woman-panel:nth-child(even) .woman-panel__virtue-bg { left: auto; right: 0.6rem; }
   .woman-panel__info,
   .woman-panel:nth-child(even) .woman-panel__info {
     padding: 2rem 2rem 2.5rem;
