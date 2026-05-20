@@ -911,163 +911,177 @@ body::before {
   line-height: 1.8;
 }
 
-/* ── Portrait grid — 2×2 ── */
-.women-portrait-grid {
+/* ─── WOMEN — horizontal reveal rows ──────────────────────────
+   Layout per row:
+     [VIRTUE WORD sliding left ← ] [portrait] | [name / dates]
+
+   The portrait sits at z-index 2 with an opaque background that
+   masks the virtue word until it slides out to the left. The word
+   starts fully hidden behind the portrait (translateX = portrait
+   width) and animates to its natural position on row-in.
+   Works for any word length — UPRÍMNOSŤ included.
+──────────────────────────────────────────────────────────────── */
+
+/* ── CSS custom property for portrait size (shared across children) */
+.woman-row__stage {
+  --pw: clamp(110px, 13vw, 155px);  /* portrait width = height */
+}
+
+/* Row container */
+.women-rows {
   max-width: 1100px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem;
 }
 
-/* Portrait card */
-.portrait-card {
+.woman-row {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
   text-decoration: none;
   color: inherit;
-  background: rgba(255,255,255,0.76);
-  border: 1px solid rgba(196,160,181,0.22);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(123,79,110,0.07);
-  /* scroll-reveal initial state */
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity    0.9s cubic-bezier(0.16,1,0.3,1),
-    transform  0.9s cubic-bezier(0.16,1,0.3,1),
-    box-shadow 0.55s ease;
+  border-bottom: 1px solid rgba(196,160,181,0.2);
+  transition: background 0.5s ease;
+  position: relative;
 }
-.portrait-card.card-in {
-  opacity: 1;
-  transform: translateY(0);
+.women-rows .woman-row:first-child {
+  border-top: 1px solid rgba(196,160,181,0.2);
 }
-/* stagger the 4 cards */
-.portrait-card:nth-child(2) { transition-delay: 0.1s; }
-.portrait-card:nth-child(3) { transition-delay: 0.05s; }
-.portrait-card:nth-child(4) { transition-delay: 0.15s; }
-.portrait-card:hover {
-  box-shadow: 0 24px 64px rgba(123,79,110,0.18),
-              0 6px 20px rgba(46,26,14,0.07);
+.woman-row:hover { background: rgba(196,160,181,0.07); }
+
+/* ── Stage: virtue word + portrait sitting on the right ── */
+.woman-row__stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;               /* clips virtue word when shifted right */
+  min-height: var(--pw);
+  position: relative;
 }
 
-/* Image area */
-.portrait-card__image {
-  height: 340px;
-  overflow: hidden;
-  background: linear-gradient(to bottom, rgba(237,224,232,0.35) 0%, rgba(250,244,238,0.6) 100%);
+/* Virtue word — sits at z-index 1, behind portrait */
+/* Initial: pushed right by exactly portrait width → hidden behind it */
+.woman-row__virtue {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  font-weight: 400;
+  color: var(--violet);
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  padding-left: 2rem;
+  position: relative;
+  z-index: 1;
+  /* Start fully concealed behind portrait */
+  transform: translateX(var(--pw));
+  transition: transform 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+.woman-row.row-in .woman-row__virtue {
+  transform: translateX(0);        /* slide left → letters run out */
+}
+
+/* Portrait — z-index 2, opaque background acts as mask for the virtue word */
+.woman-row__portrait {
+  width: var(--pw);
+  height: var(--pw);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  /* Solid rose background — masks virtue word underneath */
+  background: #ede0e8;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 1.5rem 2rem 0;
+  overflow: hidden;
 }
-.portrait-card__image img {
+.woman-row__portrait img {
   width: auto;
-  max-width: 68%;
+  max-width: 88%;
   height: 100%;
-  max-height: 320px;
   object-fit: contain;
   object-position: center bottom;
   display: block;
-  filter: drop-shadow(0 24px 40px rgba(0,0,0,0.11));
-  transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
 }
-.portrait-card:hover .portrait-card__image img {
-  transform: scale(1.05) translateY(-8px);
+.woman-row:hover .woman-row__portrait img {
+  transform: scale(1.07) translateY(-5px);
 }
 
-/* Body — info below the illustration */
-.portrait-card__body {
-  padding: 1.6rem 1.8rem 1.8rem;
-  border-top: 1px solid rgba(196,160,181,0.2);
+/* ── Info: name + dates, right column ── */
+.woman-row__info {
+  width: clamp(190px, 26%, 300px);
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 1.4rem 1.2rem 1.4rem 2rem;
+  border-left: 1px solid rgba(196,160,181,0.2);
+  /* Fade in with slight delay after virtue word starts moving */
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.7s ease 0.55s, transform 0.7s ease 0.55s;
+}
+.woman-row.row-in .woman-row__info {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.portrait-card__num {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(123,79,110,0.35);
-  margin-bottom: 0.5rem;
-}
-
-/* ── Virtue word — stage / theatre reveal ── */
-/* The word starts below an overflow:hidden window and slides up.     */
-/* Works for any word length because it wraps naturally in the card.  */
-.portrait-card__virtue-window {
-  overflow: hidden;
-  line-height: 1.1;
-  margin-bottom: 0.75rem;
-}
-.portrait-card__virtue {
+.woman-row__name {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 3vw, 2.6rem);
-  font-weight: 400;
-  color: var(--violet);
-  line-height: 1.1;
-  letter-spacing: 0.01em;
-  /* hidden below the window until card-in fires */
-  transform: translateY(110%);
-  transition: transform 0.78s cubic-bezier(0.16,1,0.3,1) 0.18s,
-              color 0.4s ease;
-}
-.portrait-card.card-in .portrait-card__virtue {
-  transform: translateY(0);
-}
-.portrait-card:hover .portrait-card__virtue {
-  color: var(--violet-light);
-}
-
-.portrait-card__name {
-  font-family: var(--font-body);
-  font-size: 0.98rem;
+  font-size: clamp(0.92rem, 1.3vw, 1.2rem);
   font-weight: 400;
   color: var(--earth-deep);
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-  margin-bottom: 0.35rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.55rem;
 }
 
-.portrait-card__meta {
+.woman-row__meta {
   font-family: var(--font-body);
   font-style: italic;
   font-size: 0.78rem;
-  color: rgba(46,26,14,0.42);
+  color: rgba(46,26,14,0.45);
+  line-height: 1.65;
 }
 
-.portrait-card__cta {
-  display: inline-block;
-  margin-top: 1rem;
+.woman-row__cta {
+  display: block;
+  margin-top: 0.9rem;
   font-size: 0.58rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--violet);
   opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.35s ease, transform 0.35s ease, letter-spacing 0.35s ease;
+  transition: opacity 0.4s ease, letter-spacing 0.4s ease;
 }
-.portrait-card:hover .portrait-card__cta {
+.woman-row:hover .woman-row__cta {
   opacity: 1;
-  transform: translateY(0);
   letter-spacing: 0.3em;
 }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .portrait-card { transition: opacity 0.3s ease, box-shadow 0.3s ease !important; }
-  .portrait-card__virtue { transition: none !important; transform: none !important; }
+  .woman-row__virtue { transition: transform 0.4s ease !important; }
+  .woman-row__info   { transition: opacity 0.4s ease !important; }
 }
 
-/* ── Responsive ── */
-@media (max-width: 760px) {
-  .women-portrait-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-  .portrait-card__image { height: 280px; }
-  .portrait-card__virtue { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+/* ── Mobile: stack stage above info ── */
+@media (max-width: 600px) {
+  .woman-row { flex-wrap: wrap; }
+  .woman-row__stage {
+    width: 100%;
+    --pw: 80px;
+    min-height: 80px;
+  }
+  .woman-row__virtue { font-size: clamp(2rem, 9vw, 3.2rem); padding-left: 1rem; }
+  .woman-row__info {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(196,160,181,0.2);
+    padding: 1rem 1rem 1.2rem;
+    opacity: 1; transform: none;  /* always visible on mobile */
+    transition: none;
+  }
 }
 
 /* ─── ICH PRÍBEHY ────────────────────────────────────────── */
