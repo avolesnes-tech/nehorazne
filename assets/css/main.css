@@ -1283,74 +1283,169 @@ body::before {
 }
 
 /* ─── ICH PRÍBEHY ────────────────────────────────────────── */
+/* ─── ICH PRÍBEHY — editorial list ───────────────────────── */
 .section-stories {
-  background: var(--earth-deep);
-  padding: 4.5rem 2rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  background: #1d1020;
+  padding: 5rem 2rem 6rem;
 }
-.section-stories .section-header { margin-bottom: 4rem; }
+.section-stories .section-header { margin-bottom: 4.5rem; }
 .section-stories__sub {
   font-size: 1rem; font-weight: 300;
-  color: rgba(250,244,238,0.55);
+  color: rgba(250,244,238,0.5);
   max-width: 520px; margin: 1.2rem auto 0;
-  line-height: 1.7;
+  line-height: 1.75;
 }
-.stories-grid {
-  max-width: 1100px; margin: 0 auto;
+
+/* List container */
+.stories-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each entry */
+.story-entry {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 280px 1fr;
   gap: 0;
-}
-.story-card {
+  padding: 3.2rem 0;
+  border-top: 1px solid rgba(196,160,181,0.13);
   position: relative;
-  padding: 2.5rem 2rem 2.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  border-right: 1px solid rgba(255,255,255,0.07);
-  overflow: hidden;
+  cursor: default;
+  transition: background 0.55s ease;
 }
-.story-card:nth-child(3n) { border-right: none; }
-.story-card:nth-last-child(-n+3) { border-bottom: none; }
-.story-card__initial {
-  position: absolute; top: 1rem; right: 1.25rem;
-  font-family: var(--font-display);
-  font-size: 5rem; line-height: 1;
-  color: rgba(250,244,238,0.06);
-  pointer-events: none; user-select: none;
+.story-entry:last-child {
+  border-bottom: 1px solid rgba(196,160,181,0.13);
 }
-.story-card__vlastnost {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--cream-warm);
-  margin-bottom: 0.35rem;
-  line-height: 1;
+.story-entry:hover {
+  background: rgba(196,160,181,0.055);
 }
-.story-card__name {
+
+/* ── Left column — number + virtue word ── */
+.story-entry__left {
+  padding: 0 2.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+}
+/* Sequence number — clips in from left */
+.story-entry__num {
+  display: block;
   font-family: var(--font-body);
-  font-size: 0.72rem; font-weight: 300;
-  color: var(--violet-light);
-  letter-spacing: 0.12em;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-bottom: 1.1rem; line-height: 1.3;
+  color: rgba(196,160,181,0.38);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.65s cubic-bezier(0.16,1,0.3,1);
 }
-.story-card__text {
-  font-size: 0.9rem; font-weight: 300;
-  color: rgba(250,244,238,0.7);
-  line-height: 1.8;
+.story-entry.story-in .story-entry__num {
+  clip-path: inset(0 0% 0 0);
 }
-@media (max-width: 1024px) {
-  .stories-grid { grid-template-columns: 1fr; }
-  .story-card:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.07); }
-  .story-card:nth-child(2n) { border-right: none; }
-  .story-card:nth-last-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .story-card:nth-last-child(-n+2) { border-bottom: none; }
+/* Virtue word — clips in slightly after number */
+.story-entry__virtue {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--cream-warm);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.85s cubic-bezier(0.16,1,0.3,1) 0.12s,
+              color 0.45s ease;
 }
-@media (max-width: 640px) {
-  .stories-grid { grid-template-columns: 1fr; }
-  .story-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .story-card:last-child { border-bottom: none; }
+.story-entry.story-in .story-entry__virtue {
+  clip-path: inset(0 0% 0 0);
+}
+.story-entry:hover .story-entry__virtue {
+  color: var(--violet-muted);
+}
+
+/* ── Right column — name + text ── */
+.story-entry__right {
+  padding: 0 0 0 3rem;
+  border-left: 1px solid rgba(196,160,181,0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Slide in from right on reveal */
+  opacity: 0;
+  transform: translateX(18px);
+  transition: opacity 0.75s ease 0.28s,
+              transform 0.75s cubic-bezier(0.16,1,0.3,1) 0.28s;
+}
+.story-entry.story-in .story-entry__right {
+  opacity: 1;
+  transform: none;
+}
+
+/* Accent line on the border — brightens on hover */
+.story-entry__right {
+  position: relative;
+}
+.story-entry__right::before {
+  content: '';
+  position: absolute;
+  left: -1px; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--violet-muted);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.story-entry:hover .story-entry__right::before {
+  transform: scaleY(1);
+}
+
+.story-entry__name {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--violet-light);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.story-entry__text {
+  font-size: 0.93rem;
+  font-weight: 300;
+  color: rgba(250,244,238,0.68);
+  line-height: 1.88;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .story-entry {
+    grid-template-columns: 200px 1fr;
+  }
+  .story-entry__left { padding-right: 1.8rem; }
+  .story-entry__right { padding-left: 1.8rem; }
+}
+@media (max-width: 600px) {
+  .story-entry {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 0;
+  }
+  .story-entry__left {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0 0 1.2rem 0;
+  }
+  .story-entry__virtue { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .story-entry__right {
+    padding: 1.5rem 0 0;
+    border-left: none;
+    border-top: 1px solid rgba(196,160,181,0.18);
+    transform: translateY(12px);
+  }
+  .story-entry.story-in .story-entry__right { transform: none; }
+  .story-entry__right::before { display: none; }
 }
 
 /* ─── ŽIVENA ─────────────────────────────────────────────── */
