@@ -2763,3 +2763,95 @@ html.is-transitioning {
     object-position: 52% 5%;
   }
 }
+
+/* ─── BOTANICAL SIDE MOTIF ──────────────────────────────── */
+/*
+  Fixed left-edge decoration — a stem with alternating leaves
+  and a small flower bud at the top, which draws itself in
+  as the page loads, then settles to a quiet ambient presence.
+*/
+.botanical-side {
+  position: fixed;
+  left: 0; top: 0;
+  width: 76px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 3;
+  color: var(--violet-muted);
+  opacity: 0;
+  animation: bot-lifecycle 5.8s ease 0.3s forwards;
+}
+
+/* Fade in → hold at 0.8 during drawing → settle to 0.18 */
+@keyframes bot-lifecycle {
+  0%   { opacity: 0;    }
+  5%   { opacity: 0.82; }
+  70%  { opacity: 0.82; }
+  100% { opacity: 0.18; }
+}
+
+.botanical-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ── Stem — dash values set precisely by JS; CSS provides fallback */
+.bot-stem {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: bot-stem-draw 3.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+}
+@keyframes bot-stem-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ── Leaves — each fades in as the stem passes its attachment point */
+.bot-leaf {
+  opacity: 0;
+  animation-name: bot-leaf-in;
+  animation-duration: 1.0s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.bot-leaf--1 { animation-delay: 0.60s; }
+.bot-leaf--2 { animation-delay: 0.94s; }
+.bot-leaf--3 { animation-delay: 1.28s; }
+.bot-leaf--4 { animation-delay: 1.62s; }
+.bot-leaf--5 { animation-delay: 1.96s; }
+.bot-leaf--6 { animation-delay: 2.30s; }
+.bot-leaf--7 { animation-delay: 2.62s; }
+
+/* ── Flower bud appears last */
+.bot-flower {
+  opacity: 0;
+  animation: bot-leaf-in 1.4s ease 3.08s forwards;
+}
+
+@keyframes bot-leaf-in {
+  0%   { opacity: 0; }
+  55%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* ── Hide on screens too narrow to have margin space */
+@media (max-width: 1000px) {
+  .botanical-side { display: none; }
+}
+
+/* ── Reduced motion: skip drawing, appear immediately at settled opacity */
+@media (prefers-reduced-motion: reduce) {
+  .botanical-side {
+    animation: none;
+    opacity: 0.18;
+  }
+  .bot-stem {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .bot-leaf,
+  .bot-flower {
+    animation: none;
+    opacity: 1;
+  }
+}
