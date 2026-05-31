@@ -948,45 +948,20 @@ body::before {
 .woman-panel:nth-child(even) .woman-panel__info   { order: 1; }
 .woman-panel:hover { background: rgba(196,160,181,0.04); }
 
-/* ── Ghost virtue word ────────────────────────────────────────
-   Lives inside .woman-panel__info as absolute, pinned to the
-   bottom. Info has overflow:hidden so the wide letter-spacing
-   pushes letters outside the visible area (invisible at rest).
-   On hover letters compress into view from the sides — the word
-   materialises in the empty space beneath the name/dates.
-──────────────────────────────────────────────────────────────── */
+/* ── Virtue label — always readable, in document flow ── */
 .woman-panel__virtue-bg {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: auto;
-  z-index: 0;                          /* behind name/meta text */
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 1.5rem;
-  pointer-events: none; user-select: none;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 4.8vw, 6rem);
+  order: 3;                             /* sits between meta and CTA in flex column */
+  position: relative; z-index: 1;
+  font-family: var(--font-lit);         /* Pinyon Script — elegant cursive */
+  font-size: clamp(1.7rem, 2.4vw, 2.6rem);
   font-weight: 400;
-  letter-spacing: 0.55em;             /* wide → letters outside overflow → invisible */
-  color: rgba(250, 230, 218, 0.0);    /* fully transparent at rest */
-  white-space: nowrap;
-  transition: letter-spacing 1.8s cubic-bezier(0.16, 1, 0.3, 1),
-              color 1.2s ease;
-}
-/* Hover: letters fly inward and word fades into view */
-.woman-panel:hover .woman-panel__virtue-bg {
+  color: var(--violet-muted);
+  opacity: 0.72;
   letter-spacing: 0.04em;
-  color: rgba(250, 230, 218, 0.20);
-}
-
-/* UPRÍMNOSŤ — smaller font so it settles within the info column */
-.woman-panel[data-virtue="Uprímnosť"] .woman-panel__virtue-bg {
-  font-size: clamp(1.8rem, 3.2vw, 4rem);
-  letter-spacing: 0.45em;
-}
-.woman-panel[data-virtue="Uprímnosť"]:hover .woman-panel__virtue-bg {
-  letter-spacing: 0.03em;
+  white-space: nowrap;
+  pointer-events: none; user-select: none;
+  margin-top: 0.7rem;
+  margin-bottom: 0.5rem;
 }
 
 /* ── Illustration side ── */
@@ -1027,7 +1002,6 @@ body::before {
 /* ── Info side ── */
 .woman-panel__info {
   position: relative; z-index: 1;
-  overflow: hidden;    /* clips virtue-bg when letter-spacing is wide */
   display: flex; flex-direction: column;
   /* Content cluster at the bottom — number floats absolute at top */
   justify-content: flex-end;
@@ -1045,28 +1019,6 @@ body::before {
   transform: translateX(-32px);
 }
 
-/* Vertical accent line (left edge for odd, right for even) */
-.woman-panel__info::before {
-  content: '';
-  position: absolute;
-  top: 28%; bottom: 28%; left: 0;
-  width: 1px;
-  background: linear-gradient(to bottom,
-    transparent,
-    rgba(196, 160, 181, 0.22),
-    transparent);
-  transition: top 0.6s ease, bottom 0.6s ease, background 0.6s ease;
-}
-.woman-panel:nth-child(even) .woman-panel__info::before {
-  left: auto; right: 0;
-}
-.woman-panel:hover .woman-panel__info::before {
-  top: 8%; bottom: 8%;
-  background: linear-gradient(to bottom,
-    transparent,
-    rgba(196, 160, 181, 0.48),
-    transparent);
-}
 
 /* ── panel-in: reveal visual + info ── */
 .woman-panel.panel-in .woman-panel__visual,
@@ -1116,6 +1068,7 @@ body::before {
 
 /* ── CTA link ── */
 .woman-panel__cta {
+  order: 4;
   position: relative; z-index: 1;
   display: inline-flex; align-items: center; gap: 0.6rem;
   font-family: var(--font-body);
@@ -1137,7 +1090,6 @@ body::before {
     transition: opacity 0.4s ease !important;
     transform: none !important;
   }
-  .woman-panel__virtue-bg { transition: none !important; }
 }
 
 /* ── Mobile — single column ── */
