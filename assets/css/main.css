@@ -850,7 +850,7 @@ body::before {
 
 /* ─── SECTION: WOMEN OVERVIEW ────────────────────────────── */
 .section-women {
-  background: var(--earth-deep);
+  background: #2E1520;   /* deep rose-brown — bridges earth and rose palettes */
   padding: 5rem 0 0;
   position: relative;
 }
@@ -928,7 +928,7 @@ body::before {
 .woman-panel {
   display: grid;
   grid-template-columns: 55% 45%;
-  min-height: clamp(440px, 56vh, 640px);
+  min-height: clamp(380px, 50vh, 540px);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -1012,10 +1012,9 @@ body::before {
 }
 .woman-panel__visual img {
   position: relative; z-index: 1;
-  width: auto; max-width: 76%;
-  /* Fill the visual area height; object-fit keeps proportions */
+  width: auto; max-width: 82%;
   height: 100%;
-  max-height: clamp(320px, 50vh, 560px);
+  max-height: clamp(360px, 52vh, 540px);
   object-fit: contain; object-position: center bottom;
   display: block;
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
@@ -1030,18 +1029,19 @@ body::before {
   position: relative; z-index: 1;
   overflow: hidden;    /* clips virtue-bg when letter-spacing is wide */
   display: flex; flex-direction: column;
-  justify-content: center;
+  /* Content cluster at the bottom — number floats absolute at top */
+  justify-content: flex-end;
   gap: 0;
-  /* Odd panels: info on right → slide in from right */
-  padding: 4rem 5rem 4rem 4rem;
+  /* Odd panels: info on right */
+  padding: 3.5rem 5rem 4.5rem 4rem;
   opacity: 0;
   transform: translateX(32px);
   transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
               transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
 }
-/* Even panels: info on left → slide in from left */
+/* Even panels: info on left */
 .woman-panel:nth-child(even) .woman-panel__info {
-  padding: 4rem 4rem 4rem 5rem;
+  padding: 3.5rem 4rem 4.5rem 5rem;
   transform: translateX(-32px);
 }
 
@@ -1078,26 +1078,27 @@ body::before {
 /* ── Number badge ── */
 .woman-panel__num {
   display: block;
-  position: relative; z-index: 1;   /* above virtue-bg (z-0) */
+  position: absolute; top: 3.5rem; left: 4rem;
+  z-index: 2;
   font-family: var(--font-body);
   font-size: 0.58rem; font-weight: 400;
   letter-spacing: 0.3em; text-transform: uppercase;
   color: var(--violet-muted); opacity: 0.5;
-  margin-bottom: 1.8rem;
   transition: opacity 0.4s ease;
 }
+.woman-panel:nth-child(even) .woman-panel__num { left: 5rem; }
 .woman-panel:hover .woman-panel__num { opacity: 0.9; }
 
 /* ── Name ── */
 .woman-panel__name {
   position: relative; z-index: 1;
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 2.8vw, 2.9rem);
+  font-size: clamp(1.4rem, 2.4vw, 2.6rem);
   font-weight: 400;
   color: var(--cream-warm);
   line-height: 1.05;
   letter-spacing: -0.01em;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.9rem;
   transition: color 0.35s ease;
 }
 .woman-panel:hover .woman-panel__name { color: #fff; }
@@ -1110,7 +1111,7 @@ body::before {
   letter-spacing: 0.08em;
   line-height: 1.9;
   color: rgba(196, 160, 181, 0.52);
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.6rem;
 }
 
 /* ── CTA link ── */
