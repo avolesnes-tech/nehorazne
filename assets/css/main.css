@@ -21,7 +21,7 @@
 
   --font-display:   'Abril Fatface', Georgia, serif;
   --font-body:      'EB Garamond', Georgia, serif;
-  --font-lit:       'Caveat', cursive;
+  --font-lit:       'Pinyon Script', cursive;
 
   --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -853,12 +853,6 @@ body::before {
   background: linear-gradient(160deg, var(--violet-pale) 0%, #fdf8fb 45%, var(--cream) 100%);
   padding: 6rem 2rem 7rem;
   position: relative;
-  /* Shared token: width of the opaque aside (portrait + info) on the right.
-     The virtue word starts hidden at translateX(aside-w) and slides left. */
-  --aside-w: clamp(260px, 35vw, 370px);
-  /* Opaque colour that matches the section background mid-tone.
-     Used on the aside so it masks the virtue word as it slides out. */
-  --women-bg: #ede8f0;
 }
 .section-women__header {
   text-align: center;
@@ -917,199 +911,201 @@ body::before {
   line-height: 1.8;
 }
 
-/* ─── WOMEN — horizontal reveal rows ──────────────────────────
-   Correct layout per row (matches original brief):
-
-     LEFT  ── virtue-area ──────────────────────────────────────
-     [  VIRTUE WORD ← slides out from behind the right block   ]
-     RIGHT ── aside (portrait + name / dates) ─────────────────
-     [ portrait  |  name, birth–death, place, CTA link ]
-
-   The aside has z-index 2 + opaque background (--women-bg).
-   It acts as a mask: the virtue word starts hidden behind it
-   (translateX = 1000px, guaranteed off-screen to the right),
-   then animates to translate(0, -50%) on row-in, so letters
-   run out from behind the aside's left edge.
-   Works for any word length — UPRÍMNOSŤ included.
+/* ─── WOMEN — 2×2 portrait cards with letter-cascade animation ──
+   Each card centres the virtue word. On scroll-reveal, every
+   letter drops in one by one (translateY + rotate, staggered
+   65 ms apart) via JS-injected .vl spans. Portrait + name/dates
+   sit at the bottom of the card.
 ──────────────────────────────────────────────────────────────── */
 
-.women-rows {
+.women-cards {
   max-width: 1100px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;                        /* hairline grid seams */
+  border: 2px solid rgba(196,160,181,0.18);
 }
 
-.woman-row {
+/* ── Each card ── */
+.woman-card {
+  position: relative;
   display: flex;
-  align-items: stretch;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 2.5rem 2.2rem;
   text-decoration: none;
   color: inherit;
-  min-height: clamp(130px, 16vw, 180px);
-  border-bottom: 1px solid rgba(196,160,181,0.2);
-  overflow: hidden;                /* clips virtue word while it's off-screen */
-  position: relative;
-  transition: background 0.5s ease;
+  min-height: clamp(320px, 38vw, 430px);
+  background: linear-gradient(145deg, #f8f1f6 0%, #ede3eb 100%);
+  overflow: hidden;
+  /* entrance: card fades up */
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.16,1,0.3,1),
+              background 0.5s ease;
 }
-.women-rows .woman-row:first-child {
-  border-top: 1px solid rgba(196,160,181,0.2);
+.woman-card.card-in {
+  opacity: 1;
+  transform: translateY(0);
 }
-.woman-row:hover { background: rgba(196,160,181,0.06); }
+/* Per-card background variants */
+.woman-card:nth-child(1) { background: linear-gradient(145deg, #f9f2f7 0%, #ede4ec 100%); }
+.woman-card:nth-child(2) { background: linear-gradient(145deg, #f5eef4 0%, #e8dde7 100%); }
+.woman-card:nth-child(3) { background: linear-gradient(145deg, #f4eeee 0%, #e9e0de 100%); }
+.woman-card:nth-child(4) { background: linear-gradient(145deg, #f7f0f5 0%, #ebe3e9 100%); }
+.woman-card:hover        { background: linear-gradient(145deg, #f0e4ed 0%, #e2d5e0 100%) !important; }
 
-/* ── LEFT: virtue word area — fills all space left of the aside ── */
-.woman-row__virtue-area {
-  flex: 1;
-  position: relative;           /* needed for absolute virtue word */
-  min-width: 0;                 /* allow flex shrink */
-}
-
-/* Virtue word — absolutely centred in virtue-area, starts hidden to the right */
-.woman-row__virtue {
+/* Decorative botanical squiggle in corner */
+.woman-card::before {
+  content: '';
   position: absolute;
-  left: 2.5rem;
-  top: 50%;
-  /* Start far to the right — fully hidden behind the aside */
-  transform: translate(1000px, -50%);
-  transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+  top: -30px; right: -30px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,160,181,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
 
+/* Card number badge */
+.woman-card__num {
+  position: absolute;
+  top: 1.4rem; left: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: rgba(123,79,110,0.3);
+  user-select: none;
+}
+
+/* ── Virtue word — THE centrepiece ── */
+.woman-card__virtue {
+  text-align: center;
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.2vw, 5rem);
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
   font-weight: 400;
   color: var(--violet);
-  white-space: nowrap;
   line-height: 1;
-  letter-spacing: -0.01em;
-  z-index: 1;
-}
-/* On scroll-reveal: virtue word slides left, letters emerge from behind aside */
-.woman-row.row-in .woman-row__virtue {
-  transform: translate(0, -50%);
+  letter-spacing: -0.02em;
+  margin: 0 0 2.4rem 0;
+  white-space: nowrap;
+  overflow: hidden;              /* clips letters during drop-in */
 }
 
-/* ── RIGHT: aside = portrait + info — opaque, acts as reveal mask ── */
-.woman-row__aside {
-  width: var(--aside-w, 340px);
-  flex-shrink: 0;
+/* ── Individual letter spans injected by JS ── */
+.woman-card__virtue .vl {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(55px) rotate(-12deg);
+  transition: opacity 0.45s ease,
+              transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.woman-card.card-in .woman-card__virtue .vl {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+
+/* ── Bottom row: portrait + info ── */
+.woman-card__bottom {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  padding: 1.4rem 2rem 1.4rem 1.4rem;
-  /* Opaque background — masks virtue word while it's still behind */
-  background: var(--women-bg, #ede8f0);
-  border-left: 1px solid rgba(196,160,181,0.2);
-  z-index: 2;              /* sits above virtue word */
-  position: relative;
-  /* Subtle entrance from the right */
-  opacity: 0;
-  transform: translateX(14px);
-  transition: opacity 0.75s ease 0.55s, transform 0.75s cubic-bezier(0.16,1,0.3,1) 0.55s;
-}
-.woman-row.row-in .woman-row__aside {
-  opacity: 1;
-  transform: translateX(0);
+  gap: 1.1rem;
+  width: 100%;
 }
 
-/* Portrait inside the aside */
-.woman-row__portrait {
-  width: clamp(70px, 8vw, 105px);
-  height: clamp(88px, 10vw, 130px);
+.woman-card__portrait {
+  width: clamp(62px, 8vw, 88px);
+  height: clamp(80px, 10vw, 110px);
   flex-shrink: 0;
-  border-radius: 6px;
-  background: rgba(237,224,232,0.55);
+  border-radius: 5px;
+  background: rgba(196,160,181,0.18);
+  overflow: hidden;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(123,79,110,0.12);
+  box-shadow: 0 6px 20px rgba(123,79,110,0.13);
+  transition: box-shadow 0.4s ease;
 }
-.woman-row__portrait img {
+.woman-card:hover .woman-card__portrait {
+  box-shadow: 0 10px 28px rgba(123,79,110,0.22);
+}
+.woman-card__portrait img {
   width: auto;
-  max-width: 90%;
+  max-width: 92%;
   height: 100%;
   object-fit: contain;
   object-position: center bottom;
   display: block;
   transition: transform 0.85s cubic-bezier(0.16,1,0.3,1);
 }
-.woman-row:hover .woman-row__portrait img {
-  transform: scale(1.07) translateY(-5px);
+.woman-card:hover .woman-card__portrait img {
+  transform: scale(1.08) translateY(-5px);
 }
 
-/* Info block: name, meta, CTA — sits to the right of the portrait */
-.woman-row__info {
+.woman-card__info {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
 }
 
-.woman-row__name {
+.woman-card__name {
   font-family: var(--font-display);
-  font-size: clamp(0.88rem, 1.25vw, 1.15rem);
+  font-size: clamp(0.82rem, 1.1vw, 1rem);
   font-weight: 400;
   color: var(--earth-deep);
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
-.woman-row__meta {
+.woman-card__meta {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 0.75rem;
-  color: rgba(46,26,14,0.45);
+  font-size: 0.72rem;
+  color: rgba(46,26,14,0.42);
   line-height: 1.7;
 }
 
-.woman-row__cta {
+.woman-card__cta {
   display: inline-block;
-  margin-top: 0.6rem;
-  font-size: 0.56rem;
+  margin-top: 0.55rem;
+  font-size: 0.53rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--violet);
   opacity: 0;
   transition: opacity 0.35s ease, letter-spacing 0.35s ease;
 }
-.woman-row:hover .woman-row__cta {
+.woman-card:hover .woman-card__cta {
   opacity: 1;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.28em;
 }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .woman-row__virtue { transition: transform 0.4s ease !important; }
-  .woman-row__aside  { transition: opacity 0.4s ease !important; }
+  .woman-card { transition: opacity 0.3s ease !important; }
+  .woman-card__virtue .vl {
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+  }
 }
 
-/* ── Mobile: stack top–bottom ── */
-@media (max-width: 600px) {
-  .woman-row {
-    flex-direction: column;
-    min-height: auto;
+/* ── Mobile: single column ── */
+@media (max-width: 620px) {
+  .women-cards {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
-  /* On mobile the virtue is always visible — no animation */
-  .woman-row__virtue {
-    position: relative;
-    left: auto; top: auto;
-    transform: none !important;
-    transition: none !important;
-    display: block;
-    padding: 1rem 1rem 0.8rem;
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  .woman-card {
+    min-height: 280px;
+    padding: 3rem 1.6rem 1.8rem;
   }
-  .woman-row__virtue-area {
-    min-height: auto;
-  }
-  .woman-row__aside {
-    width: 100%;
-    background: transparent;
-    border-left: none;
-    border-top: 1px solid rgba(196,160,181,0.2);
-    padding: 1rem 1rem 1.2rem;
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .woman-card__virtue {
+    font-size: clamp(2.6rem, 11vw, 3.8rem);
+    overflow: visible;
   }
 }
 
