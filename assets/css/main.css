@@ -2764,3 +2764,49 @@ html.is-transitioning {
   }
 }
 
+/* ─── BOTANICAL SIDE MOTIF ──────────────────────────────── */
+/*
+  Fixed strip on the left edge — the botanical tile SVG repeats
+  vertically and is revealed from bottom to top via clip-path as
+  the page loads, then fades gently to an ambient low opacity.
+*/
+.botanical-side {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 3;
+  background-image: url('../images/botanical-tile.svg');
+  background-repeat: repeat-y;
+  background-size: 100px auto;
+  background-position: left top;
+  opacity: 0.28;
+  /* Start fully clipped from top (nothing visible), grow upward */
+  clip-path: inset(100% 0 0 0);
+  -webkit-mask-image: linear-gradient(to right, black 30%, transparent 100%);
+  mask-image: linear-gradient(to right, black 30%, transparent 100%);
+  animation: bot-grow 3.6s cubic-bezier(0.4, 0, 0.15, 1) 0.4s forwards,
+             bot-dim  1.2s ease 4.5s forwards;
+}
+
+@keyframes bot-grow {
+  to { clip-path: inset(0% 0 0 0); }
+}
+
+@keyframes bot-dim {
+  to { opacity: 0.15; }
+}
+
+@media (max-width: 1040px) {
+  .botanical-side { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botanical-side {
+    animation: none;
+    clip-path: none;
+    opacity: 0.15;
+  }
+}
+

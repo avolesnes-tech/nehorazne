@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
-  <g fill="none" stroke="#7B5EA7" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="#C4A0B5" stroke-linecap="round" stroke-linejoin="round">
     <!-- Main diagonal stem crossing tile -->
     <path d="M0 180 Q40 140 70 110 Q100 80 130 40 Q155 10 180 0" stroke-width="1.1"/>
     <!-- Left side stem from bottom edge -->
@@ -9,32 +9,32 @@
 
     <!-- Branches off main stem -->
     <path d="M38 148 Q22 138 14 122" stroke-width="0.9"/>
-    <ellipse cx="11" cy="119" rx="9" ry="4.5" transform="rotate(-35 11 119)" fill="#7B5EA7" fill-opacity="0.25" stroke-width="0.7"/>
+    <ellipse cx="11" cy="119" rx="9" ry="4.5" transform="rotate(-35 11 119)" fill="#C4A0B5" fill-opacity="0.28" stroke-width="0.7"/>
     <path d="M55 128 Q44 110 48 94" stroke-width="0.85"/>
-    <ellipse cx="49" cy="91" rx="8" ry="4" transform="rotate(-55 49 91)" fill="#7B5EA7" fill-opacity="0.22" stroke-width="0.7"/>
+    <ellipse cx="49" cy="91" rx="8" ry="4" transform="rotate(-55 49 91)" fill="#C4A0B5" fill-opacity="0.24" stroke-width="0.7"/>
     <path d="M72 108 Q58 98 52 82" stroke-width="0.85"/>
-    <ellipse cx="50" cy="79" rx="8" ry="4" transform="rotate(-40 50 79)" fill="#7B5EA7" fill-opacity="0.2" stroke-width="0.7"/>
+    <ellipse cx="50" cy="79" rx="8" ry="4" transform="rotate(-40 50 79)" fill="#C4A0B5" fill-opacity="0.22" stroke-width="0.7"/>
     <path d="M88 86 Q100 72 108 58" stroke-width="0.85"/>
-    <ellipse cx="110" cy="55" rx="9" ry="4" transform="rotate(-65 110 55)" fill="#7B5EA7" fill-opacity="0.22" stroke-width="0.7"/>
+    <ellipse cx="110" cy="55" rx="9" ry="4" transform="rotate(-65 110 55)" fill="#C4A0B5" fill-opacity="0.24" stroke-width="0.7"/>
     <path d="M108 62 Q120 50 132 44" stroke-width="0.8"/>
-    <ellipse cx="135" cy="42" rx="8" ry="4" transform="rotate(-80 135 42)" fill="#7B5EA7" fill-opacity="0.2" stroke-width="0.7"/>
+    <ellipse cx="135" cy="42" rx="8" ry="4" transform="rotate(-80 135 42)" fill="#C4A0B5" fill-opacity="0.22" stroke-width="0.7"/>
 
     <!-- Branches off left stem -->
     <path d="M28 66 Q16 58 8 46" stroke-width="0.8"/>
-    <ellipse cx="6" cy="43" rx="8" ry="4" transform="rotate(-25 6 43)" fill="#7B5EA7" fill-opacity="0.2" stroke-width="0.7"/>
+    <ellipse cx="6" cy="43" rx="8" ry="4" transform="rotate(-25 6 43)" fill="#C4A0B5" fill-opacity="0.22" stroke-width="0.7"/>
     <path d="M52 52 Q64 40 70 28" stroke-width="0.8"/>
-    <ellipse cx="71" cy="25" rx="8" ry="4" transform="rotate(-60 71 25)" fill="#7B5EA7" fill-opacity="0.2" stroke-width="0.7"/>
+    <ellipse cx="71" cy="25" rx="8" ry="4" transform="rotate(-60 71 25)" fill="#C4A0B5" fill-opacity="0.22" stroke-width="0.7"/>
 
     <!-- Branches off right stem -->
     <path d="M196 178 Q210 165 220 155" stroke-width="0.8"/>
     <path d="M184 148 Q198 138 208 124" stroke-width="0.8"/>
-    <ellipse cx="210" cy="121" rx="8" ry="4" transform="rotate(30 210 121)" fill="#7B5EA7" fill-opacity="0.2" stroke-width="0.7"/>
+    <ellipse cx="210" cy="121" rx="8" ry="4" transform="rotate(30 210 121)" fill="#C4A0B5" fill-opacity="0.22" stroke-width="0.7"/>
     <path d="M168 118 Q180 108 192 100" stroke-width="0.8"/>
-    <ellipse cx="194" cy="98" rx="8" ry="4" transform="rotate(20 194 98)" fill="#7B5EA7" fill-opacity="0.2" stroke-width="0.7"/>
+    <ellipse cx="194" cy="98" rx="8" ry="4" transform="rotate(20 194 98)" fill="#C4A0B5" fill-opacity="0.22" stroke-width="0.7"/>
 
     <!-- Small scattered leaves for texture -->
-    <ellipse cx="160" cy="170" rx="7" ry="3.5" transform="rotate(15 160 170)" fill="#7B5EA7" fill-opacity="0.15" stroke-width="0.6"/>
-    <ellipse cx="30" cy="200" rx="7" ry="3.5" transform="rotate(-20 30 200)" fill="#7B5EA7" fill-opacity="0.15" stroke-width="0.6"/>
-    <ellipse cx="190" cy="50" rx="6" ry="3" transform="rotate(40 190 50)" fill="#7B5EA7" fill-opacity="0.15" stroke-width="0.6"/>
+    <ellipse cx="160" cy="170" rx="7" ry="3.5" transform="rotate(15 160 170)" fill="#C4A0B5" fill-opacity="0.18" stroke-width="0.6"/>
+    <ellipse cx="30" cy="200" rx="7" ry="3.5" transform="rotate(-20 30 200)" fill="#C4A0B5" fill-opacity="0.18" stroke-width="0.6"/>
+    <ellipse cx="190" cy="50" rx="6" ry="3" transform="rotate(40 190 50)" fill="#C4A0B5" fill-opacity="0.18" stroke-width="0.6"/>
   </g>
 </svg>
