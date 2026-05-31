@@ -850,8 +850,7 @@ body::before {
 
 /* ─── SECTION: WOMEN OVERVIEW ────────────────────────────── */
 .section-women {
-  /* Deep plum — connects to the violet/rose palette, richer than pure earth-deep */
-  background: #1A0F1E;
+  background: var(--earth-deep);
   padding: 5rem 0 0;
   position: relative;
 }
@@ -861,10 +860,10 @@ body::before {
   padding: 0 5rem;
 }
 .section-women .section-title        { color: var(--cream-warm); }
-.section-women .section-women__sub   { color: rgba(237,224,232,0.5); }
-.section-women .section-label        { color: var(--violet-muted); }
+.section-women .section-women__sub   { color: rgba(250,244,238,0.52); }
+.section-women .section-label        { color: var(--dust); }
 .section-women .section-label::before,
-.section-women .section-label::after { background: var(--violet-muted); opacity: 0.5; }
+.section-women .section-label::after { background: var(--dust); opacity: 0.45; }
 .section-label {
   display: inline-flex; align-items: center; gap: 0.75rem;
   font-size: 0.65rem; font-weight: 600;
@@ -949,28 +948,34 @@ body::before {
 .woman-panel:nth-child(even) .woman-panel__info   { order: 1; }
 .woman-panel:hover { background: rgba(196,160,181,0.04); }
 
-/* ── Ghost virtue word — rose-violet tint, full panel width ── */
+/* ── Ghost virtue word ────────────────────────────────────────
+   z-index: 2 puts it ABOVE the illustration (z-index: 1) so it
+   is never obscured. At base opacity (0.048) it reads as a faint
+   watermark; on hover it compresses and brightens so the word
+   is clearly legible across the full panel.
+   Info text sits at z-index 3 — always on top.
+──────────────────────────────────────────────────────────────── */
 .woman-panel__virtue-bg {
-  position: absolute; inset: 0; z-index: 0;
+  position: absolute; inset: 0;
+  z-index: 2;                         /* above illustration */
   display: flex; align-items: center; justify-content: center;
   pointer-events: none; user-select: none;
   font-family: var(--font-display);
   font-size: clamp(6rem, 13vw, 16rem);
   font-weight: 400;
-  /* Spread letters far apart — barely visible baseline */
-  letter-spacing: 0.38em;
-  color: rgba(196, 160, 181, 0.045);  /* violet-muted tint */
+  letter-spacing: 0.38em;             /* letters spread → barely visible */
+  color: rgba(250, 230, 218, 0.048);  /* warm cream, palette-safe */
   white-space: nowrap;
   transition: letter-spacing 1.8s cubic-bezier(0.16, 1, 0.3, 1),
               color 1s ease;
 }
-/* Hover: letters fly to centre, word becomes legible */
+/* Hover: letters compress to centre, word becomes readable */
 .woman-panel:hover .woman-panel__virtue-bg {
   letter-spacing: 0.05em;
-  color: rgba(196, 160, 181, 0.13);
+  color: rgba(250, 230, 218, 0.22);   /* bright enough to read clearly */
 }
 
-/* UPRÍMNOSŤ — 9 chars, smaller font so it stays within panel */
+/* UPRÍMNOSŤ — 9 chars needs smaller font to stay within panel */
 .woman-panel[data-virtue="Uprímnosť"] .woman-panel__virtue-bg {
   font-size: clamp(4rem, 9.5vw, 11.5rem);
   letter-spacing: 0.28em;
@@ -1017,7 +1022,7 @@ body::before {
 
 /* ── Info side ── */
 .woman-panel__info {
-  position: relative; z-index: 1;
+  position: relative; z-index: 3;   /* above ghost word (z-2) and illustration (z-1) */
   display: flex; flex-direction: column;
   justify-content: center;
   gap: 0;
