@@ -1101,25 +1101,43 @@ body::before {
     grid-template-columns: 1fr;
     min-height: auto;
   }
+
+  /* Virtue word above illustration — drawn from data-virtue attribute */
+  .woman-panel::before {
+    content: attr(data-virtue);
+    display: block;
+    /* order 0 = first in grid, before visual (order 1) and info (order 2) */
+    font-family: var(--font-lit);
+    font-size: clamp(2rem, 9vw, 3rem);
+    color: var(--violet-muted);
+    opacity: 0.82;
+    text-align: center;
+    padding: 1.8rem 1rem 0.4rem;
+    letter-spacing: 0.04em;
+  }
+
   .woman-panel__visual,
   .woman-panel:nth-child(even) .woman-panel__visual { order: 1; }
   .woman-panel__info,
   .woman-panel:nth-child(even) .woman-panel__info   { order: 2; }
+
   .woman-panel__visual {
     height: clamp(260px, 55vw, 420px);
     padding: 2rem 3rem 0;
   }
   .woman-panel__visual img { max-height: 100%; }
+
   .woman-panel__info,
   .woman-panel:nth-child(even) .woman-panel__info {
     padding: 2.5rem 2rem 3rem;
     transform: translateY(24px);
     transition: opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s;
   }
-  .woman-panel__info::before,
-  .woman-panel:nth-child(even) .woman-panel__info::before { display: none; }
+
+  /* Virtue already shown via ::before above — hide duplicate in info */
+  .woman-panel__virtue-bg { display: none; }
+
   .section-women__header { padding: 0 1.5rem; }
-  .woman-panel__virtue-bg { font-size: clamp(3.5rem, 12vw, 8rem) !important; letter-spacing: 0.25em !important; }
 }
 
 /* ─── ICH PRÍBEHY ────────────────────────────────────────── */
