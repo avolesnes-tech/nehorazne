@@ -2109,6 +2109,19 @@ body::before {
 .rebelka-col--doktorat .rebelka-col__eyebrow { color: var(--warm-brown); }
 .rebelka-col--rany { border-top-color: var(--violet-muted); }
 .rebelka-col--rany .rebelka-col__eyebrow { color: var(--violet); }
+
+/* ─── BREATHING WAVE ON REBELKA CARDS ───────────────── */
+@keyframes rebelka-breathe {
+  0%, 100% { transform: scale(1);     box-shadow: 0 2px 20px rgba(30,12,4,0.06); }
+  50%       { transform: scale(1.016); box-shadow: 0 8px 32px rgba(30,12,4,0.11); }
+}
+.section-rebelka .rebelka-col {
+  will-change: transform;
+  animation: rebelka-breathe 3.6s ease-in-out infinite;
+}
+.section-rebelka .rebelka-col:nth-child(1) { animation-delay: 0.8s; }
+.section-rebelka .rebelka-col:nth-child(2) { animation-delay: 2.0s; }
+.section-rebelka .rebelka-col:nth-child(3) { animation-delay: 3.2s; }
 .rebelka-col__text {
   font-size: 0.88rem; font-weight: 300;
   color: var(--clay);
@@ -2116,14 +2129,17 @@ body::before {
   margin-bottom: 1.25rem;
 }
 .rebelka-col__quote {
-  font-family: var(--font-lit);
-  font-size: 1.05rem;
-  color: var(--warm-brown);
-  line-height: 1.7;
-  border-left: 2px solid var(--dust);
-  padding-left: 1rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--earth);
+  line-height: 1.85;
+  border-left: 3px solid var(--blush);
+  padding: 0.75rem 0.75rem 0.75rem 1.1rem;
   margin: 0;
-  font-style: normal;
+  background: rgba(201, 129, 106, 0.06);
+  border-radius: 0 6px 6px 0;
 }
 
 /* ─── SECTION: REBELSKÝ MOMENT ───────────────────────────── */
@@ -2342,6 +2358,42 @@ body::before {
   background: var(--cream-warm);
   padding: 4.5rem 2rem;
   position: relative; overflow: hidden;
+}
+
+/* ─── ELENIN ODKAZ ───────────────────────────────────────── */
+.section-odkaz {
+  background: var(--cream-warm);
+  padding: 5rem 2rem 5.5rem;
+}
+.odkaz-list {
+  list-style: none;
+  max-width: 660px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.odkaz-list__item {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 400;
+  color: var(--earth);
+  line-height: 1.45;
+  padding: 1.35rem 0 1.35rem 2rem;
+  border-bottom: 1px solid rgba(46, 26, 14, 0.1);
+  position: relative;
+}
+.odkaz-list__item:first-child { border-top: 1px solid rgba(46, 26, 14, 0.1); }
+.odkaz-list__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--violet);
 }
 
 .vzor-grid {
