@@ -67,11 +67,11 @@
 <!-- ─── HERO ──────────────────────────────────────────────── -->
 <section class="onas-hero">
   <div class="onas-hero__inner">
-    <p class="section-label reveal">O projekte</p>
-    <h1 class="onas-hero__title reveal">
+    <p class="section-label">O projekte</p>
+    <h1 class="onas-hero__title">
       Začalo to<br><em>jedným listom.</em>
     </h1>
-    <p class="onas-hero__lead reveal">
+    <p class="onas-hero__lead">
       Listom, ktorý napísala Božena Slančíková-Timrava svojej priateľke v roku 1898.
       Prečítala som ho a niečo sa vo mne zastavilo.
     </p>
@@ -288,7 +288,7 @@ document.querySelectorAll('a, button').forEach(el => {
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.classList.add('revealed');
+      e.target.classList.add('visible');
       revealObs.unobserve(e.target);
     }
   });

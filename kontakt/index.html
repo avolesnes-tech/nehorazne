@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — Slovenky pred nami</title>
+  <meta name="description" content="Napíšte nám — o projekte, spolupráci alebo ak chcete zdieľať príbeh ženy, ktorá vás inšpiruje.">
+  <meta name="author" content="Anna Lockwoodová">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Slovenky pred nami">
+  <meta property="og:title" content="Kontakt — Slovenky pred nami">
+  <meta property="og:description" content="Napíšte nám — o projekte, spolupráci alebo ak chcete zdieľať príbeh ženy, ktorá vás inšpiruje.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pinyon+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/kontakt.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js"></script>
+</head>
+
+<body>
+
+<!-- Page Transition Curtain -->
+<div id="pageCurtain" aria-hidden="true">
+  <svg class="curtain-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#5A3520" stroke-width="0.8" fill="none">
+      <path d="M80 120 Q100 90 130 80"/><ellipse cx="96" cy="68" rx="7" ry="4" transform="rotate(-30 96 68)"/>
+      <path d="M1340 100 Q1360 80 1380 90"/><ellipse cx="1371" cy="53" rx="7" ry="4" transform="rotate(40 1371 53)"/>
+      <path d="M60 750 Q80 720 110 710"/><ellipse cx="75" cy="698" rx="7" ry="4" transform="rotate(-25 75 698)"/>
+      <path d="M680 30 Q700 10 720 20"/><ellipse cx="702" cy="-2" rx="6" ry="3" transform="rotate(-40 702 -2)"/>
+      <circle cx="400" cy="150" r="2" fill="#5A3520"/>
+      <circle cx="1050" cy="170" r="2" fill="#5A3520"/>
+    </g>
+  </svg>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"><div class="cursor__dot"></div></div>
+<div class="cursor__ring" id="cursorRing"></div>
+
+<!-- ─── NAVIGÁCIA ─────────────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+  <a href="../index.html#hero" class="nav__logo">Slovenky <span>pred nami</span></a>
+  <ul class="nav__links">
+    <li class="nav__dropdown">
+      <button class="nav__dropdown-toggle" aria-expanded="false">
+        Ženy rebelky
+        <svg width="10" height="6" fill="none" viewBox="0 0 10 6">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="nav__dropdown-menu">
+        <li><a href="../zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová <span class="vlastnost-tag">Pokora</span></a></li>
+        <li><a href="../zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava <span class="vlastnost-tag">Uprímnosť</span></a></li>
+        <li><a href="../zeny-rebelky/vansova/index.html">Terézia Vansová <span class="vlastnost-tag">Múdrosť</span></a></li>
+        <li><a href="../zeny-rebelky/gregorova/index.html">Hana Gregorová <span class="vlastnost-tag">Odvaha</span></a></li>
+      </ul>
+    </li>
+    <li><a href="/eshop/">E-shop</a></li>
+    <li><a href="../o-nas/index.html">O nás</a></li>
+    <li><a href="../kontakt/index.html" class="active-page">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div data-barba="wrapper">
+  <main data-barba="container" data-barba-namespace="kontakt">
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section class="kontakt-hero">
+  <div class="kontakt-hero__inner">
+    <p class="section-label">Napíšte nám</p>
+    <h1 class="kontakt-hero__title">
+      Každý list<br><em>niečo zmení.</em>
+    </h1>
+    <p class="kontakt-hero__lead">
+      Či máte otázku o projekte, nápad na spoluprácu,
+      alebo chcete zdieľať príbeh ženy, ktorá stojí za to, aby sme o nej vedeli —
+      sme tu.
+    </p>
+  </div>
+  <div class="kontakt-hero__deco" aria-hidden="true">
+    <span class="kontakt-hero__letter">K</span>
+  </div>
+</section>
+
+<!-- ─── FORMULÁR ──────────────────────────────────────────── -->
+<section class="kontakt-section">
+  <div class="kontakt-section__inner">
+
+    <!-- Kontaktné informácie -->
+    <aside class="kontakt-info reveal">
+      <div>
+        <h2 class="kontakt-info__title">Spojte sa s nami</h2>
+        <p class="kontakt-info__text">
+          Odpovedáme do 48 hodín. Správy čítame osobne.
+        </p>
+      </div>
+
+      <div class="kontakt-divider"></div>
+
+      <div class="kontakt-info__item">
+        <span class="kontakt-info__label">E-mail</span>
+        <span class="kontakt-info__value">
+          <a href="mailto:ahoj@slovenkyprednami.sk">ahoj@slovenkyprednami.sk</a>
+        </span>
+      </div>
+
+      <div class="kontakt-info__item">
+        <span class="kontakt-info__label">Instagram</span>
+        <span class="kontakt-info__value">
+          <a href="https://instagram.com/slovenkyprednami" target="_blank" rel="noopener">@slovenkyprednami</a>
+        </span>
+      </div>
+
+      <div class="kontakt-info__item">
+        <span class="kontakt-info__label">Facebook</span>
+        <span class="kontakt-info__value">
+          <a href="https://facebook.com/slovenkyprednami" target="_blank" rel="noopener">Slovenky pred nami</a>
+        </span>
+      </div>
+
+      <div class="kontakt-divider"></div>
+
+      <div class="kontakt-info__item">
+        <span class="kontakt-info__label">Chcete niečo viac?</span>
+        <p class="kontakt-info__text" style="margin-top: 0.4rem;">
+          Ak ste novinárka, učiteľka alebo organizujete podujatie o slovenských ženách —
+          napíšte, radi sa zapojíme.
+        </p>
+      </div>
+    </aside>
+
+    <!-- Formulár -->
+    <div class="reveal reveal-delay-1">
+
+      <!-- Úspešné odoslanie -->
+      <div class="kontakt-success" id="kontaktSuccess">
+        <p class="kontakt-success__title">Ďakujeme!</p>
+        <p class="kontakt-success__text">
+          Vaša správa dorazila. Odpíšeme vám čoskoro — zvyčajne do dvoch dní.
+        </p>
+      </div>
+
+      <!-- Formspree — nahraďte YOUR_FORM_ID za váš Formspree endpoint -->
+      <form
+        class="kontakt-form"
+        id="kontaktForm"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+      >
+        <div class="kontakt-field">
+          <label class="kontakt-label" for="meno">Meno</label>
+          <input
+            class="kontakt-input"
+            type="text"
+            id="meno"
+            name="meno"
+            placeholder="Ako vám máme hovoriť?"
+            required
+            autocomplete="given-name"
+          >
+        </div>
+
+        <div class="kontakt-field">
+          <label class="kontakt-label" for="email">E-mail</label>
+          <input
+            class="kontakt-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="vas@email.sk"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="kontakt-field">
+          <label class="kontakt-label" for="predmet">Predmet</label>
+          <input
+            class="kontakt-input"
+            type="text"
+            id="predmet"
+            name="predmet"
+            placeholder="O čom chcete písať?"
+          >
+        </div>
+
+        <div class="kontakt-field">
+          <label class="kontakt-label" for="sprava">Správa</label>
+          <textarea
+            class="kontakt-textarea"
+            id="sprava"
+            name="sprava"
+            placeholder="Napíšte nám..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="kontakt-form__gdpr">
+          <input type="checkbox" id="gdpr" name="gdpr" required>
+          <p class="kontakt-form__gdpr-text">
+            Súhlasím so spracovaním osobných údajov za účelom odpovede na moju správu.
+            Viac informácií v <a href="../sukromie/index.html">Ochrane súkromia</a>.
+          </p>
+        </div>
+
+        <div class="kontakt-form__submit">
+          <button type="submit" class="btn btn--primary">
+            Odoslať správu <span class="btn__arrow">→</span>
+          </button>
+          <span class="kontakt-form__note">Neodosielame spam. Nikdy.</span>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <a href="../index.html#hero" class="nav__logo">Slovenky <span>pred nami</span></a>
+      <p class="footer__tagline">„Ona tu bola prvá."</p>
+      <div class="footer__social">
+        <a href="https://instagram.com/slovenkyprednami" aria-label="Instagram">IG</a>
+        <a href="https://facebook.com/slovenkyprednami" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer__col-title">Ženy rebelky</p>
+      <ul class="footer__links">
+        <li><a href="../zeny-rebelky/soltesova/index.html">Elena Maróthy-Šoltésová</a></li>
+        <li><a href="../zeny-rebelky/timrava/index.html">Božena Slančíková-Timrava</a></li>
+        <li><a href="../zeny-rebelky/vansova/index.html">Terézia Vansová</a></li>
+        <li><a href="../zeny-rebelky/gregorova/index.html">Hana Gregorová</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-title">Ďalšie</p>
+      <ul class="footer__links">
+        <li><a href="/eshop/">E-shop</a></li>
+        <li><a href="../o-nas/index.html">O nás</a></li>
+        <li><a href="../kontakt/index.html">Kontakt</a></li>
+        <li><a href="../sukromie/index.html">Ochrana súkromia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2025 Anna Lockwoodová · slovenkyprednami.sk</span>
+    <span>Vytvorené s láskou k ženám, ktoré boli pred nami.</span>
+  </div>
+</footer>
+
+  </main>
+</div>
+
+<script>
+/* ─── CURSOR ─────────────────────────────────────────────── */
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+cursor.style.left = ring.style.left = '0px';
+cursor.style.top  = ring.style.top  = '0px';
+(function animCursor() {
+  cursor.style.transform = `translate(${mx}px, ${my}px)`;
+  rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+  ring.style.transform = `translate(${rx}px, ${ry}px)`;
+  requestAnimationFrame(animCursor);
+})();
+
+/* ─── NAV SCROLL ─────────────────────────────────────────── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+/* ─── NAV DROPDOWN ───────────────────────────────────────── */
+document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
+});
+
+/* ─── HOVER LISTENERS ────────────────────────────────────── */
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+});
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ─── GSAP HERO ENTRY ────────────────────────────────────── */
+if (typeof gsap !== 'undefined') {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from('.kontakt-hero__title', { opacity: 0, y: 40, duration: 0.9 }, 0.2)
+    .from('.kontakt-hero__lead',  { opacity: 0, y: 20, duration: 0.7 }, 0.5)
+    .from('.kontakt-hero__deco',  { opacity: 0, scale: 0.85, duration: 1.2 }, 0.1);
+}
+
+/* ─── FORM SUBMIT (Formspree AJAX) ───────────────────────── */
+const form    = document.getElementById('kontaktForm');
+const success = document.getElementById('kontaktSuccess');
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const data = new FormData(form);
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      form.style.display = 'none';
+      success.classList.add('visible');
+      window.scrollTo({ top: success.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+    } else {
+      alert('Ups, niečo sa pokazilo. Skúste to znova alebo nám napíšte priamo na ahoj@slovenkyprednami.sk');
+    }
+  } catch {
+    alert('Ups, niečo sa pokazilo. Skúste to znova alebo nám napíšte priamo na ahoj@slovenkyprednami.sk');
+  }
+});
+
+/* ─── BARBA PAGE TRANSITIONS ─────────────────────────────── */
+if (typeof barba !== 'undefined') {
+  barba.init({
+    transitions: [{
+      name: 'curtain',
+      leave() {
+        return gsap.to('#pageCurtain', { scaleY: 1, transformOrigin: 'bottom center', duration: 0.55, ease: 'power2.inOut' });
+      },
+      enter() {
+        return gsap.from('#pageCurtain', { scaleY: 0, transformOrigin: 'top center', duration: 0.5, ease: 'power2.inOut', delay: 0.1 });
+      }
+    }]
+  });
+}
+</script>
+
+</body>
+</html>

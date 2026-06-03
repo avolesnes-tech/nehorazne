@@ -1,0 +1,274 @@
+/* ═══════════════════════════════════════════════════════════
+   KONTAKT — page-specific styles
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── HERO ────────────────────────────────────────────────── */
+.kontakt-hero {
+  min-height: 52vh;
+  background: var(--earth-deep);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 10rem 8vw 5rem;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.kontakt-hero__inner {
+  position: relative; z-index: 2;
+}
+
+.kontakt-hero__inner .section-label {
+  color: var(--dust);
+  margin-bottom: 1.8rem;
+}
+.kontakt-hero__inner .section-label::before,
+.kontakt-hero__inner .section-label::after { background: var(--dust); opacity: 0.45; }
+
+.kontakt-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 400;
+  color: var(--cream-warm);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.8rem;
+}
+.kontakt-hero__title em {
+  font-style: normal;
+  color: var(--violet-light);
+  font-family: var(--font-lit);
+  font-size: 1.15em;
+  letter-spacing: 0.01em;
+}
+
+.kontakt-hero__lead {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+  font-weight: 300;
+  color: rgba(250, 244, 238, 0.62);
+  line-height: 1.85;
+  max-width: 42ch;
+}
+
+.kontakt-hero__deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; z-index: 1;
+}
+.kontakt-hero__letter {
+  font-family: var(--font-display);
+  font-size: clamp(12rem, 20vw, 20rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(196, 160, 181, 0.15);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ─── FORM SECTION ────────────────────────────────────────── */
+.kontakt-section {
+  background: var(--earth);
+  padding: 6rem 2rem 7rem;
+}
+
+.kontakt-section__inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ─── CONTACT INFO ────────────────────────────────────────── */
+.kontakt-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.kontakt-info__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--cream-warm);
+  margin-bottom: 0.25rem;
+}
+
+.kontakt-info__text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(250, 244, 238, 0.58);
+  line-height: 1.7;
+}
+
+.kontakt-info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.kontakt-info__label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dust);
+}
+
+.kontakt-info__value {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--cream-warm);
+}
+.kontakt-info__value a {
+  color: var(--violet-light);
+  transition: color 0.2s;
+}
+.kontakt-info__value a:hover { color: var(--cream-warm); }
+
+.kontakt-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(200,160,130,0.3);
+  margin: 0.25rem 0;
+}
+
+/* ─── FORM ────────────────────────────────────────────────── */
+.kontakt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.kontakt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kontakt-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dust);
+}
+
+.kontakt-input,
+.kontakt-textarea {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  background: rgba(244, 235, 224, 0.07);
+  border: 1px solid rgba(244, 235, 224, 0.18);
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--cream-warm);
+  outline: none;
+  transition: border-color 0.25s, background 0.25s;
+  cursor: none;
+}
+.kontakt-input::placeholder,
+.kontakt-textarea::placeholder {
+  color: rgba(196, 160, 181, 0.45);
+}
+.kontakt-input:focus,
+.kontakt-textarea:focus {
+  border-color: var(--violet-light);
+  background: rgba(244, 235, 224, 0.1);
+}
+
+.kontakt-textarea {
+  resize: vertical;
+  min-height: 160px;
+  line-height: 1.65;
+}
+
+.kontakt-form__gdpr {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.kontakt-form__gdpr input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: var(--violet);
+  flex-shrink: 0;
+  cursor: none;
+}
+.kontakt-form__gdpr-text {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(250, 244, 238, 0.45);
+  line-height: 1.6;
+}
+.kontakt-form__gdpr-text a {
+  color: var(--violet-light);
+  text-decoration: underline;
+}
+
+.kontakt-form__submit {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.kontakt-form__note {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(250, 244, 238, 0.38);
+}
+
+/* ─── SUCCESS STATE ────────────────────────────────────────── */
+.kontakt-success {
+  display: none;
+  background: rgba(123, 79, 110, 0.12);
+  border: 1px solid rgba(166, 120, 150, 0.3);
+  border-radius: var(--r-md);
+  padding: 1.5rem 2rem;
+}
+.kontakt-success.visible { display: block; }
+.kontakt-success__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--violet-light);
+  margin-bottom: 0.5rem;
+}
+.kontakt-success__text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(250, 244, 238, 0.6);
+  line-height: 1.65;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .kontakt-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 8rem 6vw 4rem;
+  }
+  .kontakt-hero__deco { display: none; }
+
+  .kontakt-section__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .kontakt-hero { padding: 7rem 1.5rem 3.5rem; }
+  .kontakt-section { padding: 4rem 1.5rem 5rem; }
+}
