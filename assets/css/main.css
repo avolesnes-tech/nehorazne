@@ -2105,6 +2105,27 @@ body::before {
 .rebelka-col--today .rebelka-col__eyebrow { color: var(--clay); }
 .rebelka-col--today ul li::before { background: var(--dust); }
 
+.rebelka-col--doktorat { border-top-color: var(--warm-brown); }
+.rebelka-col--doktorat .rebelka-col__eyebrow { color: var(--warm-brown); }
+.rebelka-col--rany { border-top-color: var(--violet-muted); }
+.rebelka-col--rany .rebelka-col__eyebrow { color: var(--violet); }
+.rebelka-col__text {
+  font-size: 0.88rem; font-weight: 300;
+  color: var(--clay);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.rebelka-col__quote {
+  font-family: var(--font-lit);
+  font-size: 1.05rem;
+  color: var(--warm-brown);
+  line-height: 1.7;
+  border-left: 2px solid var(--dust);
+  padding-left: 1rem;
+  margin: 0;
+  font-style: normal;
+}
+
 /* ─── SECTION: REBELSKÝ MOMENT ───────────────────────────── */
 .section-rebelia {
   background: var(--ink);
