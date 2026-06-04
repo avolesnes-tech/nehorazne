@@ -2105,9 +2105,18 @@ body::before {
 
 /* ─── SECTION: PREČO BOLA REBELKA ────────────────────────── */
 .section-rebelka {
-  background: var(--cream);
+  background: var(--violet-pale);
   padding: 4.5rem 2rem;
   position: relative; overflow: hidden;
+}
+/* Section label — warm brown for contrast on violet-pale bg */
+.section-rebelka .section-label {
+  color: var(--warm-brown);
+}
+.section-rebelka .section-label::before,
+.section-rebelka .section-label::after {
+  background: var(--warm-brown);
+  opacity: 0.55;
 }
 
 .rebelka-grid {
@@ -2117,11 +2126,11 @@ body::before {
   max-width: 1100px; margin: 0 auto;
 }
 .rebelka-col {
-  background: var(--violet-pale);
+  background: var(--white);
   border-radius: var(--r-lg);
   padding: 2.5rem 2rem;
-  border-top: 3px solid var(--violet);
-  box-shadow: 0 2px 20px rgba(123,79,110,0.1);
+  border-top: 4px solid var(--violet);
+  box-shadow: 0 2px 16px rgba(123,79,110,0.1);
 }
 .rebelka-col__eyebrow {
   font-size: 0.65rem; font-weight: 500;
@@ -2163,12 +2172,13 @@ body::before {
 .rebelka-col--rany .rebelka-col__eyebrow { color: var(--violet); }
 
 /* ─── BREATHING WAVE ON REBELKA CARDS ───────────────── */
+/* Only box-shadow pulses — no transform, so text stays completely still */
 @keyframes rebelka-breathe {
-  0%, 100% { transform: scale(1);     box-shadow: 0 2px 20px rgba(30,12,4,0.06); }
-  50%       { transform: scale(1.016); box-shadow: 0 8px 32px rgba(30,12,4,0.11); }
+  0%, 100% { box-shadow: 0 2px 16px rgba(123,79,110,0.10); }
+  50%       { box-shadow: 0 10px 44px rgba(123,79,110,0.30); }
 }
 .section-rebelka .rebelka-col {
-  will-change: transform;
+  will-change: box-shadow;
   animation: rebelka-breathe 3.6s ease-in-out infinite;
 }
 .section-rebelka .rebelka-col:nth-child(1) { animation-delay: 0.8s; }
