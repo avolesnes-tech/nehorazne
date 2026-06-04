@@ -941,16 +941,21 @@ function splitWords(el) {
 
 var _heroAnimDone = false;
 function initHeroAnimation() {
-  if (_heroAnimDone) return;
-  _heroAnimDone = true;
-  /* Failsafe — ensure hero text is always visible, clearProps after GSAP */
+  /* Failsafe — force all hero elements visible regardless of CSS initial state */
   function ensureHeroVisible() {
     document.querySelectorAll(
       '.hero__title--line1, .hero__title--line2, .split-word, .hero__subtitle, .hero__cta-group'
-    ).forEach(function(el) { el.style.opacity = ''; el.style.transform = ''; });
+    ).forEach(function(el) {
+      el.style.opacity = '1';
+      el.style.transform = '';
+      el.style.filter = '';
+      el.style.letterSpacing = '';
+    });
   }
 
   if (typeof gsap === 'undefined') { ensureHeroVisible(); return; }
+  if (_heroAnimDone) return;
+  _heroAnimDone = true;
 
   // Homepage hero
   var line1 = document.querySelector('.hero__title--line1');
