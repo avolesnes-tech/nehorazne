@@ -1213,13 +1213,33 @@ body::before {
 
 /* ─── ICH PRÍBEHY ────────────────────────────────────────── */
 .section-stories {
-  background: var(--earth);
+  background: var(--cream-warm);
   padding: 5.5rem 2rem 7rem;
+  border-top:    1px solid rgba(184,132,90,0.14);
+  border-bottom: 1px solid rgba(184,132,90,0.14);
 }
 .section-stories .section-header { margin-bottom: 4.5rem; }
+
+/* Title + em override for cream bg */
+.section-stories .section-title--cream        { color: var(--earth); }
+.section-stories .section-title--cream em     { color: var(--violet); font-style: italic; }
+.section-stories .section-label--pale         { color: var(--dust); }
+.section-stories .section-label--pale::before,
+.section-stories .section-label--pale::after  { background: var(--dust); opacity: 0.55; }
+
+/* Ornamental divider below header */
+.section-stories .section-header::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--dust), transparent);
+  margin: 2.5rem auto 0;
+}
+
 .section-stories__sub {
   font-size: 1rem; font-weight: 300;
-  color: rgba(250,244,238,0.5);
+  color: rgba(92,51,32,0.62);
   max-width: 520px; margin: 1.2rem auto 0;
   line-height: 1.75;
 }
@@ -1230,44 +1250,77 @@ body::before {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem 3rem;
+  gap: 2rem 2.5rem;
 }
 
-/* Story card — virtue is a small italic label, name is the hero */
+/* Story card */
 .story-card {
-  padding-top: 2rem;
-  border-top: 1px solid rgba(196,160,181,0.22);
   position: relative;
+  padding: 2.2rem 2.2rem 2rem;
+  background: var(--white);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow:
+    0 2px 12px rgba(92,51,32,0.07),
+    0 1px 3px  rgba(92,51,32,0.04);
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.16,1,0.3,1);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s cubic-bezier(0.16,1,0.3,1),
+    box-shadow 0.4s ease;
+}
+.story-card:hover {
+  box-shadow:
+    0 8px 32px rgba(123,79,110,0.13),
+    0 2px 8px  rgba(92,51,32,0.06);
 }
 .story-card.card-in { opacity: 1; transform: translateY(0); }
 .story-card:nth-child(2) { transition-delay: 0.1s; }
 .story-card:nth-child(3) { transition-delay: 0.05s; }
 .story-card:nth-child(4) { transition-delay: 0.15s; }
 
-/* Animated rose accent line at top */
+/* Animated violet accent line at top of card */
 .story-card::before {
   content: '';
   position: absolute;
-  top: -1px; left: 0;
+  top: 0; left: 0;
   height: 2px;
   width: 0;
-  background: var(--violet-muted);
-  transition: width 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s;
+  background: linear-gradient(to right, var(--violet), var(--violet-muted));
+  transition: width 0.85s cubic-bezier(0.16,1,0.3,1) 0.3s;
+  border-radius: var(--r-md) var(--r-md) 0 0;
 }
 .story-card.card-in::before { width: 100%; }
 
-/* Virtue — small italic label */
+/* Virtue watermark — large ghost word behind content */
+.story-card::after {
+  content: attr(data-virtue);
+  position: absolute;
+  bottom: -0.18em;
+  right: -0.06em;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 8vw, 9.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--violet);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  transition: opacity 0.5s ease;
+}
+.story-card:hover::after { opacity: 0.13; }
+
+/* Virtue — small label */
 .story-card__virtue {
   display: block;
   font-family: var(--font-body);
   font-style: italic;
   font-size: 0.82rem;
-  color: var(--violet-muted);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.5rem;
+  color: var(--violet);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.55rem;
   opacity: 0;
   transition: opacity 0.6s ease 0.5s;
 }
@@ -1278,18 +1331,16 @@ body::before {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.2vw, 2rem);
   font-weight: 400;
-  color: var(--cream-warm);
+  color: var(--earth);
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin-bottom: 1.2rem;
-  display: inline-block;           /* transform-origin works on block/inline-block */
+  display: inline-block;
   transform-origin: left center;
 }
-/* Breathing starts only once the card has scrolled into view */
 .story-card.card-in .story-card__name {
   animation: breathe 5s ease-in-out infinite;
 }
-/* Staggered delays so names pulse independently */
 .story-card:nth-child(1).card-in .story-card__name { animation-delay:  0.0s; }
 .story-card:nth-child(2).card-in .story-card__name { animation-delay:  1.3s; }
 .story-card:nth-child(3).card-in .story-card__name { animation-delay:  2.6s; }
@@ -1300,8 +1351,9 @@ body::before {
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 300;
-  color: rgba(250,244,238,0.62);
+  color: rgba(46,26,14,0.65);
   line-height: 1.9;
+  position: relative; z-index: 1;
 }
 
 /* Respect reduced motion preference */
@@ -1312,7 +1364,8 @@ body::before {
 
 /* ── Responsive ── */
 @media (max-width: 720px) {
-  .stories-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+  .stories-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .story-card { padding: 1.8rem 1.6rem 1.6rem; }
 }
 
 
