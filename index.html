@@ -939,7 +939,10 @@ function splitWords(el) {
   return el.querySelectorAll('.split-word');
 }
 
+var _heroAnimDone = false;
 function initHeroAnimation() {
+  if (_heroAnimDone) return;
+  _heroAnimDone = true;
   /* Failsafe — ensure hero text is always visible, clearProps after GSAP */
   function ensureHeroVisible() {
     document.querySelectorAll(
