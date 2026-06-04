@@ -549,15 +549,16 @@ body::before {
 
 .hero__subtitle {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 400;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: none;
-  color: var(--violet-muted);
+  color: var(--violet-light);
   margin-bottom: 0.75rem;
   text-shadow:
-    0 1px 16px rgba(0,0,0,0.95),
-    0 0 48px rgba(0,0,0,0.8);
+    0 2px 24px rgba(0,0,0,0.98),
+    0 0 64px rgba(0,0,0,0.85),
+    0 0 120px rgba(123,79,110,0.4);
   opacity: 0; /* GSAP handles reveal */
 }
 
