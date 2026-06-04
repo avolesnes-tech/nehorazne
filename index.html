@@ -962,7 +962,7 @@ function initHeroAnimation() {
     var words1 = splitWords(line1);
     var words2 = splitWords(line2);
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' }, onComplete: ensureHeroVisible });
-    if (subtitle) tl.from(subtitle, { opacity: 0, y: 10, duration: 0.5, clearProps: 'all' }, 0);
+    if (subtitle) tl.from(subtitle, { opacity: 0, letterSpacing: '0.45em', filter: 'blur(5px)', duration: 1.1, ease: 'power3.out', clearProps: 'all' }, 0);
     tl.from(words1, { opacity: 0, y: 22, duration: 0.65, stagger: 0.055, clearProps: 'all' }, 0.1);
     tl.from(words2, { opacity: 0, y: 22, duration: 0.65, stagger: 0.055, clearProps: 'all' }, 0.3);
     if (ctaGroup) tl.from(ctaGroup, { opacity: 0, y: 12, duration: 0.5, clearProps: 'all' }, 0.56);

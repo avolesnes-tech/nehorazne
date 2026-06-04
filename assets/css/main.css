@@ -548,19 +548,17 @@ body::before {
 }
 
 .hero__subtitle {
-  font-family: var(--font-lit);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: none;
-  color: var(--cream-warm);
-  margin-bottom: 0.6rem;
+  color: var(--violet-muted);
+  margin-bottom: 0.75rem;
   text-shadow:
-    0 1px 12px rgba(0,0,0,0.95),
-    0 0 40px rgba(0,0,0,0.8),
-    0 4px 32px rgba(0,0,0,0.7);
-  opacity: 0;
-  animation: fadeUp 0.8s var(--ease-out) 0.15s forwards;
+    0 1px 16px rgba(0,0,0,0.95),
+    0 0 48px rgba(0,0,0,0.8);
+  opacity: 0; /* GSAP handles reveal */
 }
 
 .hero__cta-group {
