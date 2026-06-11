@@ -96,15 +96,33 @@ body::before {
   border-bottom: 1px solid var(--divider);
 }
 .nav__logo {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  line-height: 1;
   color: var(--cream);
   transition: color 0.2s;
+  text-decoration: none;
 }
-.nav__logo span { color: var(--violet-light); }
-.nav__logo:hover { color: var(--white); }
+.nav__logo--main {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+  line-height: 1.1;
+}
+.nav__logo--sub {
+  font-family: var(--font-lit);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--violet-light);
+  line-height: 1.4;
+  font-style: normal;
+}
+.nav__logo:hover .nav__logo--main { color: var(--white); }
+.nav__logo:hover .nav__logo--sub  { color: var(--violet-muted); }
 
 .nav__links {
   display: flex; align-items: center; gap: 0.25rem;
