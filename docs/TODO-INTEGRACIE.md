@@ -1,4 +1,4 @@
-# Slovenky pred nami — Integračný plán (frontend ↔ backend)
+# Nehorázne — Integračný plán (frontend ↔ backend)
 
 Stav k 11. 6. 2026. Web je statický (GitHub Pages), bez backendu. Toto je zoznam toho,
 čo treba prepojiť, v poradí podľa priority.
@@ -92,7 +92,7 @@ Ak chceš zbierať záväznejšie predobjednávky než mailto:
 
 ## 🟡 5. Doména a hosting
 
-- `slovenkyprednami.sk` je vo footeri, ale web beží na `avolesnes-tech.github.io/slovenkyprednami/`.
+- `nehorazne.sk` je vo footeri, ale web beží na `avolesnes-tech.github.io/nehorazne/`.
   Kúp doménu (~12 €/rok) a nastav GitHub Pages **custom domain** + HTTPS.
 - Po prechode na vlastnú doménu: aktualizuj `og:url`, `canonical`, `sitemap.xml`, `robots.txt`
   a CORS origin v Cloudflare Workeri.

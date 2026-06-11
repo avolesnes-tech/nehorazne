@@ -2,73 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/zeny-rebelky/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/zeny-rebelky/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/zeny-rebelky/soltesova/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/zeny-rebelky/soltesova/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/zeny-rebelky/timrava/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/zeny-rebelky/timrava/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/zeny-rebelky/vansova/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/zeny-rebelky/vansova/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/zeny-rebelky/gregorova/index.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/eshop/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/eshop/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/o-nas/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/o-nas/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/kontakt/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/kontakt/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/obchodne-podmienky/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/obchodne-podmienky/index.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/sukromie/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/sukromie/index.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://avolesnes-tech.github.io/slovenkyprednami/cookies/index.html</loc>
+    <loc>https://avolesnes-tech.github.io/nehorazne/cookies/index.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

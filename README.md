@@ -1,16 +1,16 @@
-# Slovenky pred nami
+# Nehorázne
 
 > *Ich posolstvo stále žije. Bojovali aj za nás. Žijú v nás naďalej.*
 
 Kultúrno-komerčný web projekt, ktorý oživuje príbehy historicky silných slovenských žien a pretavuje ich do moderného obsahu, merchu a vzdelávacích materiálov.
 
-**Live:** `https://[username].github.io/slovenkyprednami/`
+**Live:** `https://[username].github.io/nehorazne/`
 
 ---
 
 ## O projekte
 
-Slovenky pred nami nie je historický archív. Je to zrkadlo — držíme ho pred ženami, ktoré tu boli pred nami, aby sme v ňom videli seba. Päť rebeliek. Päť vlastností. Stále aktuálnych.
+Nehorázne nie je historický archív. Je to zrkadlo — držíme ho pred ženami, ktoré tu boli pred nami, aby sme v ňom videli seba. Päť rebeliek. Päť vlastností. Stále aktuálnych.
 
 | Žena | Vlastnosť | Región |
 |---|---|---|
@@ -25,7 +25,7 @@ Slovenky pred nami nie je historický archív. Je to zrkadlo — držíme ho pre
 ## Štruktúra projektu
 
 ```
-slovenkyprednami/
+nehorazne/
 │
 ├── index.html                      ← Homepage
 ├── README.md
@@ -100,8 +100,8 @@ slovenkyprednami/
 Žiadna inštalácia nie je potrebná — stačí otvoriť `index.html` v prehliadači:
 
 ```bash
-git clone https://github.com/[username]/slovenkyprednami.git
-cd slovenkyprednami
+git clone https://github.com/[username]/nehorazne.git
+cd nehorazne
 open index.html
 ```
 
@@ -122,10 +122,10 @@ npx live-server
 
 ### Vlastná doména
 
-Po zakúpení `slovenkyprednami.sk` pridaj do **Settings → Pages → Custom domain** a vytvor súbor `CNAME`:
+Po zakúpení `nehorazne.sk` pridaj do **Settings → Pages → Custom domain** a vytvor súbor `CNAME`:
 
 ```
-slovenkyprednami.sk
+nehorazne.sk
 ```
 
 ---
@@ -140,7 +140,7 @@ slovenkyprednami.sk
 - [ ] Newsletter (Substack)
 - [ ] Vlastné ilustrácie žien
 - [ ] Botanický vzor pozadia (PNG)
-- [ ] Vlastná doména slovenkyprednami.sk
+- [ ] Vlastná doména nehorazne.sk
 - [ ] Anglická verzia
 
 ---
@@ -156,7 +156,7 @@ Projekt je inšpirovaný predchádzajúcim výskumom pre [Annu Šenšelovú — 
 ## Kontakt
 
 **senselovaanna@gmail.com**  
-Instagram: [@slovenkyprednami](https://instagram.com/slovenkyprednami)
+Instagram: [@nehorazne](https://instagram.com/nehorazne)
 
 ---
 

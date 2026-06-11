@@ -1,9 +1,9 @@
-# Slovenky pred nami — Brief pre Claude Code
+# Nehorázne — Brief pre Claude Code
 
 ## Kontext projektu
 
-Web `https://avolesnes-tech.github.io/slovenkyprednami/` je živý.
-Repozitár: `https://github.com/avolesnes-tech/slovenkyprednami`
+Web `https://avolesnes-tech.github.io/nehorazne/` je živý.
+Repozitár: `https://github.com/avolesnes-tech/nehorazne`
 
 Homepage (`index.html`) je hotová a nahraná na GitHub. Teraz budujeme zvyšok stránok.
 
@@ -172,8 +172,8 @@ Homepage (`index.html`) je hotová a nahraná na GitHub. Teraz budujeme zvyšok 
       <a href="/" class="nav__logo">Slovenky <span>pred nami</span></a>
       <p class="footer__tagline">„Ona tu bola prvá."</p>
       <div class="footer__social">
-        <a href="https://instagram.com/slovenkyprednami">IG</a>
-        <a href="https://facebook.com/slovenkyprednami">FB</a>
+        <a href="https://instagram.com/nehorazne">IG</a>
+        <a href="https://facebook.com/nehorazne">FB</a>
       </div>
     </div>
     <div>
@@ -197,7 +197,7 @@ Homepage (`index.html`) je hotová a nahraná na GitHub. Teraz budujeme zvyšok 
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© 2025 Anna Lockwoodová · slovenkyprednami.sk</span>
+    <span>© 2025 Anna Lockwoodová · nehorazne.sk</span>
     <span>Vytvorené s láskou k ženám, ktoré boli pred nami.</span>
   </div>
 </footer>
@@ -262,7 +262,7 @@ Opacity podľa sekcie: tmavé pozadia `0.08–0.12`, svetlé `0.05–0.08`
 ## Súbory v repozitári
 
 ```
-avolesnes-tech/slovenkyprednami/
+avolesnes-tech/nehorazne/
 ├── index.html                ✅ hotovo
 ├── README.md                 ✅ hotovo
 └── zeny-rebelky/

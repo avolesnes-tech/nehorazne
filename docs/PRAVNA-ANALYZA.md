@@ -1,4 +1,4 @@
-# Právna analýza projektu Slovenky pred nami
+# Právna analýza projektu Nehorázne
 
 **Interný dokument pre Annu Lockwoodovú · jún 2026**
 
@@ -200,10 +200,10 @@ Kým sa tak nestane, Google Fonts sú transparentne uvedené v zásadách súkro
 Tvoje ilustrácie sú tvoje autorské diela — ochrana vzniká automaticky, registrácia
 netreba. Odporúčania:
 
-- Označuj ich `© Anna Lockwoodová / Slovenky pred nami` (nie je podmienka ochrany,
+- Označuj ich `© Anna Lockwoodová / Nehorázne` (nie je podmienka ochrany,
   ale odrádza a uľahčuje vymáhanie).
 - Uchovávaj zdrojové súbory s metadátami (dôkaz autorstva a dátumu).
-- **Ochranná známka „Slovenky pred nami":** zváž registráciu na
+- **Ochranná známka „Nehorázne":** zváž registráciu na
   **Úrade priemyselného vlastníctva SR (upv.sk)** — chráni názov a logo proti
   napodobeninám merchu. Náklady: správny poplatok za národnú prihlášku do 3 tried
   tovarov/služieb rádovo **100–200 €** (elektronicky lacnejšie; aktuálnu sadzbu over
@@ -353,7 +353,7 @@ ako názov právnickej osoby, prípadne ochranná známka.
     a uložiť DPA s Brevo (a ďalšími nástrojmi).
 12. ☐ Skontrolovať obsah produktov: žiadne citáty Gregorovej na merchi/listoch
     do 1. 1. 2029; pri fotkách doložený public domain; uvádzanie zdrojov citátov.
-13. ☐ Zvážiť ochrannú známku „Slovenky pred nami" na ÚPV SR (triedy 16, 18, 25, 41).
+13. ☐ Zvážiť ochrannú známku „Nehorázne" na ÚPV SR (triedy 16, 18, 25, 41).
 14. ☐ Pri použití „Živena" nad rámec biografie — písomný súhlas spolku.
 15. ☐ Nájsť účtovníčku/účtovníka (paušálne výdavky, eKasa otázky, DPH limit).
 16. ☐ Finálnu verziu VOP a GDPR dokumentov nechať prejsť právnikovi

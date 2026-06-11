@@ -3,15 +3,15 @@
    Banner informuje o lokálnom úložisku a pripravuje opt-in
    pre budúce analytické nástroje (Google Analytics a pod.).
 
-   Hodnoty v localStorage pod kľúčom "spn_consent":
+   Hodnoty v localStorage pod kľúčom "neh_consent":
      "necessary" — len nevyhnutné úložisko
      "all"       — súhlas aj s budúcou analytikou
 
    Po pridaní analytiky: skript načítaj LEN ak
-   localStorage.getItem('spn_consent') === 'all'.            */
+   localStorage.getItem('neh_consent') === 'all'.            */
 
 (function () {
-  var KEY = 'spn_consent';
+  var KEY = 'neh_consent';
 
   /* Koreň webu odvodíme z cesty k tomuto skriptu —
      funguje v každej hĺbke pod-stránky aj na GitHub Pages. */

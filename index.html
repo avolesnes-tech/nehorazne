@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slovenky pred nami — Tri rebelky. Tri vlastnosti.</title>
+  <title>Nehorázne — Tri rebelky. Tri vlastnosti.</title>
   <meta name="description" content="Spoznaj slovenské ženy, ktoré zmenili históriu — a zisti, ktorá žije v tebe.">
   <meta name="author" content="Anna Lockwoodová">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sk_SK">
-  <meta property="og:site_name" content="Slovenky pred nami">
-  <meta property="og:title" content="Slovenky pred nami — Tri rebelky. Tri vlastnosti.">
+  <meta property="og:site_name" content="Nehorázne">
+  <meta property="og:title" content="Nehorázne — Tri rebelky. Tri vlastnosti.">
   <meta property="og:description" content="Spoznaj slovenské ženy, ktoré zmenili históriu — a zisti, ktorá žije v tebe.">
-  <meta property="og:image" content="https://avolesnes-tech.github.io/slovenkyprednami/assets/images/soltesova_art.webp">
+  <meta property="og:image" content="https://avolesnes-tech.github.io/nehorazne/assets/images/soltesova_art.webp">
   <meta property="og:image:width" content="800">
   <meta property="og:image:height" content="800">
-  <link rel="canonical" href="https://avolesnes-tech.github.io/slovenkyprednami/">
+  <link rel="canonical" href="https://avolesnes-tech.github.io/nehorazne/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pinyon+Script&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -180,7 +180,7 @@
   <!-- Floating title header over accordion panels -->
   <header class="hero__header">
     <p class="hero__subtitle">Skutočné influencerky.</p>
-    <h1 class="hero__title" aria-label="Slovenky pred nami">
+    <h1 class="hero__title" aria-label="Nehorázne">
       <span class="hero__title--line1">SLOVENKY</span>
       <span class="hero__title--line2">pred nami</span>
     </h1>
@@ -641,7 +641,7 @@
       </p>
 
       <p class="listy-reveal reveal reveal-delay-3">
-        Cez projekt Slovenky pred nami ti chcem každý mesiac priniesť práve tento moment
+        Cez projekt Nehorázne ti chcem každý mesiac priniesť práve tento moment
         prekvapenia a ukázať ti naše spisovateľky bez učebnicového pátosu — ako <em>ženy
         z mäsa a kostí</em>, ktoré prežívali rovnaké túžby, pochybnosti a sklamania ako my dnes.
       </p>
@@ -806,8 +806,8 @@
       <a href="index.html" class="nav__logo">Slovenky <span>pred nami</span></a>
       <p class="footer__tagline">„Volali ich nehorázne."</p>
       <div class="footer__social">
-        <a href="https://instagram.com/slovenkyprednami" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
-        <a href="https://facebook.com/slovenkyprednami" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+        <a href="https://instagram.com/nehorazne" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+        <a href="https://facebook.com/nehorazne" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
       </div>
     </div>
     <div>
@@ -831,7 +831,7 @@
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© 2025 Anna Lockwoodová · slovenkyprednami.sk</span>
+    <span>© 2025 Anna Lockwoodová · nehorazne.sk</span>
     <span>Vytvorené s láskou k ženám, ktoré boli pred nami.</span>
   </div>
 </footer>
@@ -1123,8 +1123,8 @@ function submitEmail() {
     return;
   }
   const result = getResult();
-  localStorage.setItem('spn_result', result);
-  localStorage.setItem('spn_email', email);
+  localStorage.setItem('neh_result', result);
+  localStorage.setItem('neh_email', email);
   document.getElementById('emailGate').classList.remove('active');
   showResult(result);
 }
@@ -1147,11 +1147,11 @@ function showResult(key) {
 
 /* ─── SHARE ──────────────────────────────────────────────── */
 function shareResult(platform) {
-  const key = localStorage.getItem('spn_result');
+  const key = localStorage.getItem('neh_result');
   const w = women[key];
   if (!w) return;
   const text = `Zistila som, že mám v sebe rebelku ${w.name} — ženy s vlastnosťou ${w.vlastnost}. Ktorá rebelka žije v tebe?`;
-  const url = 'https://slovenkyprednami.sk/#osobnostny-test';
+  const url = 'https://nehorazne.sk/#osobnostny-test';
   if (platform === 'facebook') {
     window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(text), '_blank', 'width=600,height=400');
   } else if (platform === 'twitter') {
@@ -1198,7 +1198,7 @@ async function subscribeNewsletter(e) {
   if (!BREVO_PROXY_URL) {
     window.location.href = 'mailto:senselovaanna@gmail.com'
       + '?subject=' + encodeURIComponent('Prihlásenie na newsletter')
-      + '&body=' + encodeURIComponent('Ahoj, chcem odoberať newsletter Slovenky pred nami.\nMôj e-mail: ' + email);
+      + '&body=' + encodeURIComponent('Ahoj, chcem odoberať newsletter Nehorázne.\nMôj e-mail: ' + email);
     btn.innerHTML = 'Ďakujeme! ✦';
     return;
   }
@@ -1241,7 +1241,7 @@ async function subscribeNewsletter(e) {
       msg.className = 'newsletter-error';
       form.after(msg);
     }
-    msg.textContent = 'Niečo sa pokazilo. Skúste to znova alebo napíšte na ahoj@slovenkyprednami.sk';
+    msg.textContent = 'Niečo sa pokazilo. Skúste to znova alebo napíšte na ahoj@nehorazne.sk';
   }
 }
 
