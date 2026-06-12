@@ -1397,11 +1397,26 @@ barba.init({
 // Global hook: runs after every page transition, regardless of namespace.
 // Ensures .reveal elements and hover listeners are always re-initialised
 // even on pages without a dedicated view entry (kontakt, o-nas, zeny-rebelky…).
-barba.hooks.afterEnter(() => {
+barba.hooks.afterEnter((data) => {
+  syncNav(data);
   initScrollReveal();
   initHoverListeners();
   initHamburger();
 });
+
+// The <nav> lives OUTSIDE the barba container, so it persists across
+// transitions — which means its relative links stay fixed to whatever
+// page first loaded. Each fetched page already ships a <nav> with links
+// correct for its own depth, so copy that in after every swap.
+function syncNav(data) {
+  try {
+    if (!data || !data.next || !data.next.html) return;
+    const doc = new DOMParser().parseFromString(data.next.html, 'text/html');
+    const incoming = doc.getElementById('mainNav');
+    const current = document.getElementById('mainNav');
+    if (incoming && current) current.innerHTML = incoming.innerHTML;
+  } catch (e) { /* keep the existing nav on any parse failure */ }
+}
 
 function initHamburger() {
   const nav = document.getElementById('mainNav');
@@ -1433,6 +1448,7 @@ initHamburger();
 } // end file:// guard
 </script>
 <script src="assets/js/consent.js" defer></script>
+<script src="assets/js/nav-transitions.js"></script>
 
 </body>
 </html>

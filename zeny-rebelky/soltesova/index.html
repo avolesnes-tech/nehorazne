@@ -701,30 +701,8 @@ function initHeroAnimation() {
 }
 initHeroAnimation();
 </script>
-<script src="../../assets/js/consent.js" defer>function initHamburger() {
-  const nav = document.getElementById('mainNav');
-  const btn = document.getElementById('navHamburger');
-  if (!btn || !nav) return;
-
-  const fresh = btn.cloneNode(true);
-  btn.parentNode.replaceChild(fresh, btn);
-
-  fresh.addEventListener('click', () => {
-    const open = nav.classList.toggle('menu-open');
-    fresh.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-
-  nav.querySelectorAll('.nav__links a').forEach(a => {
-    a.addEventListener('click', () => {
-      nav.classList.remove('menu-open');
-      fresh.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
-  });
-}
-initHamburger();
-</script>
+<script src="../../assets/js/consent.js" defer></script>
+<script src="../../assets/js/nav-transitions.js"></script>
 
 </body>
 </html>
