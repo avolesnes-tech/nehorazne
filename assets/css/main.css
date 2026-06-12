@@ -849,12 +849,12 @@ body::before {
 /* ─── SECTION: WOMEN OVERVIEW ────────────────────────────── */
 .section-women {
   background: #2E1520;
-  padding: 2.5rem 0 0;
+  padding: 2rem 0 0;
   position: relative;
 }
 .section-women__header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   padding: 0 3rem;
 }
 .section-women .section-title        { color: var(--cream-warm); }
@@ -927,7 +927,7 @@ body::before {
 .woman-panel {
   display: grid;
   grid-template-columns: 60% 40%;
-  min-height: clamp(280px, 34vh, 420px);
+  min-height: clamp(460px, 58vh, 600px);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -997,7 +997,7 @@ body::before {
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
-  padding: 1rem 1.5rem 0;
+  padding: 0 1rem 0;
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1013,9 +1013,9 @@ body::before {
 }
 .woman-panel__visual img {
   position: relative; z-index: 1;
-  width: auto; max-width: 92%;
+  width: auto; max-width: 96%;
   height: 100%;
-  max-height: clamp(310px, 44vh, 480px);
+  max-height: clamp(440px, 56vh, 580px);
   object-fit: contain; object-position: center bottom;
   display: block;
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
@@ -1129,7 +1129,7 @@ body::before {
   }
 }
 
-/* ── Mobile — single column ── */
+/* ── Mobile — editorial portrait cards ── */
 @media (max-width: 860px) {
   .woman-panel,
   .woman-panel:nth-child(even) {
@@ -1137,39 +1137,44 @@ body::before {
     min-height: auto;
   }
 
-  /* Virtue word above illustration — drawn from data-virtue attribute */
-  .woman-panel::before {
-    content: attr(data-virtue);
-    display: block;
-    /* order 0 = first in grid, before visual (order 1) and info (order 2) */
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 9vw, 3rem);
-    color: var(--violet-muted);
-    opacity: 0.82;
-    text-align: center;
-    padding: 1.8rem 1rem 0.4rem;
-    letter-spacing: 0.04em;
-  }
+  /* Remove the old ::before virtue word — virtue-label in info is enough */
+  .woman-panel::before { display: none; }
 
   .woman-panel__visual,
   .woman-panel:nth-child(even) .woman-panel__visual { order: 1; }
   .woman-panel__info,
   .woman-panel:nth-child(even) .woman-panel__info   { order: 2; }
 
+  /* Taller illustration area — figure pins to top, space below flows to info */
   .woman-panel__visual {
-    height: clamp(260px, 55vw, 420px);
-    padding: 2rem 3rem 0;
+    height: clamp(300px, 80vw, 420px);
+    padding: 0 1.5rem 0;
+    align-items: flex-start;
   }
-  .woman-panel__visual img { max-height: 100%; }
+  .woman-panel__visual img {
+    max-height: 100%;
+    max-width: 88%;
+  }
 
   .woman-panel__info,
   .woman-panel:nth-child(even) .woman-panel__info {
-    padding: 2.5rem 2rem 3rem;
+    padding: 1.4rem 2rem 2.4rem;
+    gap: 0.25rem;
+    justify-content: flex-start;
     transform: translateY(24px);
     transition: opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s;
   }
 
-  /* Virtue already shown via ::before above — hide duplicate in info */
+  /* Virtue label bigger on mobile */
+  .woman-panel__virtue-label {
+    font-size: clamp(3rem, 11vw, 4.2rem);
+    margin-bottom: 0.4rem;
+  }
+
+  .woman-panel__name {
+    font-size: clamp(1.3rem, 5.5vw, 2rem);
+  }
+
   .woman-panel__virtue-bg { display: none; }
 
   .section-women__header { padding: 0 1.5rem; }
