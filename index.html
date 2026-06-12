@@ -83,6 +83,11 @@
     <li><a href="o-nas/index.html">O nás</a></li>
     <li><a href="kontakt/index.html">Kontakt</a></li>
   </ul>
+  <button class="nav__hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false">
+    <span class="nav__hamburger-bar"></span>
+    <span class="nav__hamburger-bar"></span>
+    <span class="nav__hamburger-bar"></span>
+  </button>
 </nav>
 
 <div data-barba="wrapper">
@@ -1395,7 +1400,35 @@ barba.init({
 barba.hooks.afterEnter(() => {
   initScrollReveal();
   initHoverListeners();
+  initHamburger();
 });
+
+function initHamburger() {
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('navHamburger');
+  if (!btn || !nav) return;
+
+  // Remove any old listener by cloning
+  const fresh = btn.cloneNode(true);
+  btn.parentNode.replaceChild(fresh, btn);
+
+  fresh.addEventListener('click', () => {
+    const open = nav.classList.toggle('menu-open');
+    fresh.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  // Close on any nav link click
+  nav.querySelectorAll('.nav__links a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('menu-open');
+      fresh.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
+// Init on first load too
+initHamburger();
 
 } // end file:// guard
 </script>
