@@ -848,14 +848,14 @@ body::before {
 
 /* ─── SECTION: WOMEN OVERVIEW ────────────────────────────── */
 .section-women {
-  background: #2E1520;   /* deep rose-brown — bridges earth and rose palettes */
-  padding: 5rem 0 0;
+  background: #2E1520;
+  padding: 2.5rem 0 0;
   position: relative;
 }
 .section-women__header {
   text-align: center;
-  margin-bottom: 4rem;
-  padding: 0 5rem;
+  margin-bottom: 2.5rem;
+  padding: 0 3rem;
 }
 .section-women .section-title        { color: var(--cream-warm); }
 .section-women .section-women__sub   { color: rgba(250,244,238,0.52); }
@@ -926,23 +926,22 @@ body::before {
 /* ── Panel row ── */
 .woman-panel {
   display: grid;
-  grid-template-columns: 55% 45%;
-  min-height: clamp(260px, 36vh, 400px);
+  grid-template-columns: 60% 40%;
+  min-height: clamp(280px, 34vh, 420px);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   position: relative;
-  border-top: 1px solid rgba(196,160,181,0.08);
-  background: #2E1520;   /* tmavá ružovohnedá — nepárne riadky */
+  border-top: 1px solid rgba(196,160,181,0.06);
+  background: #2E1520;
   transition: background 0.5s ease;
 }
 .woman-panel:last-child {
-  border-bottom: 1px solid rgba(196,160,181,0.08);
+  border-bottom: 1px solid rgba(196,160,181,0.06);
 }
-/* Even panels: lighter rose-brown + info left, illustration right */
 .woman-panel:nth-child(even) {
-  grid-template-columns: 45% 55%;
-  background: #4A2535;   /* svetlejšia ružovohnedá — párne riadky */
+  grid-template-columns: 40% 60%;
+  background: #3D1D2C;
 }
 .woman-panel:nth-child(even) .woman-panel__visual { order: 2; }
 .woman-panel:nth-child(even) .woman-panel__info   { order: 1; }
@@ -960,7 +959,7 @@ body::before {
   font-weight: 400;
   line-height: 1;
   color: var(--violet-muted);
-  opacity: 0.38;
+  opacity: 0.14;
   letter-spacing: 0.02em;
   white-space: nowrap;
   pointer-events: none;
@@ -995,10 +994,10 @@ body::before {
 .woman-panel__visual {
   position: relative; z-index: 1;
   display: flex;
-  align-items: flex-end;       /* figure sits on the bottom edge */
+  align-items: flex-end;
   justify-content: center;
   overflow: hidden;
-  padding: 1.5rem 3rem 0;      /* top + sides padding, no bottom = flush */
+  padding: 1rem 1.5rem 0;
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1014,9 +1013,9 @@ body::before {
 }
 .woman-panel__visual img {
   position: relative; z-index: 1;
-  width: auto; max-width: 82%;
+  width: auto; max-width: 92%;
   height: 100%;
-  max-height: clamp(300px, 42vh, 460px);
+  max-height: clamp(310px, 44vh, 480px);
   object-fit: contain; object-position: center bottom;
   display: block;
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
@@ -1030,20 +1029,31 @@ body::before {
 .woman-panel__info {
   position: relative; z-index: 1;
   display: flex; flex-direction: column;
-  /* Content cluster at the bottom — number floats absolute at top */
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0;
-  /* Odd panels: info on right */
-  padding: 2.5rem 4rem 3rem 3.5rem;
+  padding: 2rem 3rem 2.5rem 2.5rem;
   opacity: 0;
   transform: translateX(32px);
   transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
               transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
 }
-/* Even panels: info on left */
 .woman-panel:nth-child(even) .woman-panel__info {
-  padding: 2.5rem 3.5rem 3rem 4rem;
+  padding: 2rem 2.5rem 2.5rem 3rem;
   transform: translateX(-32px);
+}
+
+/* ── Virtue label — primary visible element ── */
+.woman-panel__virtue-label {
+  font-family: var(--font-lit);
+  font-size: clamp(2.6rem, 4.5vw, 5rem);
+  color: var(--violet-light);
+  line-height: 1;
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.01em;
+  transition: color 0.4s ease;
+}
+.woman-panel:hover .woman-panel__virtue-label {
+  color: var(--violet-muted);
 }
 
 
