@@ -452,9 +452,6 @@
   </svg>
 </div>
 
-<!-- Custom Cursor -->
-<div class="cursor" id="cursor"><div class="cursor__dot"></div></div>
-<div class="cursor__ring" id="cursorRing"></div>
 
 <!-- ─── NAVIGÁCIA ─────────────────────────────────────────── -->
 <nav class="nav" id="mainNav">
@@ -721,19 +718,6 @@
 </div>
 
 <script>
-/* ─── CURSOR ─────────────────────────────────────────────── */
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-cursor.style.left = ring.style.left = '0px';
-cursor.style.top  = ring.style.top  = '0px';
-(function animCursor() {
-  cursor.style.transform = `translate(${mx}px, ${my}px)`;
-  rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
-  ring.style.transform = `translate(${rx}px, ${ry}px)`;
-  requestAnimationFrame(animCursor);
-})();
 
 /* ─── NAV SCROLL ─────────────────────────────────────────── */
 const nav = document.getElementById('mainNav');
