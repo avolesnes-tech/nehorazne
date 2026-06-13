@@ -61,7 +61,20 @@
       var doc = new DOMParser().parseFromString(data.next.html, 'text/html');
       var inc = doc.getElementById('mainNav');
       var cur = document.getElementById('mainNav');
-      if (inc && cur) cur.innerHTML = inc.innerHTML;
+      if (!inc || !cur) return;
+      // Barba strips 'index.html' and trailing slash from pushState URLs, so relative
+      // nav links (e.g. ../soltesova/) resolve incorrectly. Absolutize them here using
+      // the barba URL + forced trailing slash as the base.
+      var base = (data.next.url && data.next.url.href)
+        ? data.next.url.href.replace(/\/?$/, '/')
+        : window.location.href.replace(/\/?$/, '/');
+      inc.querySelectorAll('a[href]').forEach(function (a) {
+        var rel = a.getAttribute('href');
+        if (rel && rel.charAt(0) !== '/' && rel.charAt(0) !== '#' && rel.indexOf('://') === -1) {
+          try { a.setAttribute('href', new URL(rel, base).pathname); } catch (e) {}
+        }
+      });
+      cur.innerHTML = inc.innerHTML;
     } catch (e) { /* keep the existing nav on any parse failure */ }
   }
 
