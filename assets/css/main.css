@@ -47,6 +47,41 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { cursor: none; border: none; background: none; }
 
+/* ─── ACCESSIBILITY ──────────────────────────────────────────
+   Keyboard focus, touch-pointer cursor, reduced motion — these
+   were the highest-severity a11y gaps in the audit. */
+
+/* Visible keyboard focus. :focus-visible fires only for keyboard
+   navigation, so mouse clicks stay clean. */
+:focus-visible {
+  outline: 2px solid var(--violet-light);
+  outline-offset: 3px;
+}
+a:focus-visible, button:focus-visible,
+input:focus-visible, textarea:focus-visible, select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--violet-light);
+  outline-offset: 3px;
+}
+
+/* Touch / coarse-pointer devices: keep the native cursor and never
+   run the custom one (it only makes sense with a fine pointer). */
+@media (hover: none), (pointer: coarse) {
+  body, button, a, .nav__dropdown-toggle { cursor: auto; }
+  .cursor, .cursor__ring { display: none !important; }
+}
+
+/* Honour reduced-motion: neutralise marquee, glow, ken-burns,
+   breathing and transitions for users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ─── CUSTOM CURSOR ──────────────────────────────────────── */
 .cursor {
   position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
